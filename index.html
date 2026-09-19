@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Belajarverse — Dunia Belajar</title>
+  <title>Belajarverse</title>
 
   <meta
     name="description"
@@ -103,6 +103,7 @@
       margin: auto;
     }
 
+
     /* =========================
        HEADER
     ========================== */
@@ -112,7 +113,7 @@
       top: 0;
       z-index: 100;
 
-      background: rgba(21, 29, 38, 0.88);
+      background: rgba(21, 29, 38, 0.90);
 
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -157,6 +158,9 @@
       color: var(--cyan);
     }
 
+
+    /* DESKTOP MENU */
+
     .nav-menu {
       display: flex;
       align-items: center;
@@ -177,35 +181,92 @@
       color: var(--white);
     }
 
-    .nav-button {
-      padding: 10px 19px;
 
-      border: 1px solid rgba(53, 223, 255, 0.6);
-      border-radius: 999px;
+    /* MOBILE MENU BUTTON */
 
-      color: var(--white) !important;
+    .menu-toggle {
+      display: none;
+
+      width: 42px;
+      height: 42px;
+
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(53, 223, 255, 0.35);
+      border-radius: 12px;
 
       background: rgba(53, 223, 255, 0.05);
+
+      color: var(--white);
+
+      font-size: 22px;
+
+      cursor: pointer;
     }
 
-    .nav-button:hover {
-      background: rgba(53, 223, 255, 0.12);
+
+    /* MOBILE DROPDOWN */
+
+    .mobile-menu {
+      display: none;
+
+      position: absolute;
+
+      top: 76px;
+      right: 5%;
+
+      width: 210px;
+
+      padding: 10px;
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+
+      background: rgba(21, 29, 38, 0.97);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.25);
     }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+
+      padding: 13px 14px;
+
+      border-radius: 10px;
+
+      color: var(--muted);
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      transition: 0.2s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--white);
+
+      background: rgba(53, 223, 255, 0.08);
+    }
+
 
     /* =========================
        HERO
     ========================== */
 
     .hero {
-      min-height: 55vh;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 45px 0 65px;
 
       text-align: center;
-
-      padding: 70px 0 80px;
     }
 
     .hero-logo {
@@ -214,6 +275,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      margin-bottom: 30px;
     }
 
     .hero-logo::before {
@@ -221,12 +284,12 @@
 
       position: absolute;
 
-      width: 360px;
-      height: 360px;
+      width: 300px;
+      height: 300px;
 
       border-radius: 50%;
 
-      background: rgba(22, 143, 255, 0.10);
+      background: rgba(22, 143, 255, 0.08);
 
       filter: blur(65px);
     }
@@ -234,7 +297,7 @@
     .hero-logo img {
       position: relative;
 
-      width: min(280px, 60vw);
+      width: min(220px, 50vw);
       height: auto;
 
       object-fit: contain;
@@ -244,146 +307,43 @@
         drop-shadow(0 0 30px rgba(53, 223, 255, 0.15));
     }
 
-    /* =========================
-       DUNIA BELAJAR
-    ========================== */
 
-    .section {
-      padding: 100px 0;
+    /* HERO TEXT */
+
+    .hero-title {
+      font-size: clamp(34px, 6vw, 52px);
+
+      font-weight: 800;
+
+      letter-spacing: -1.5px;
+
+      margin-bottom: 15px;
     }
 
-    .section-title {
-      text-align: center;
-
-      margin-bottom: 50px;
-    }
-
-    .section-label {
-      display: inline-block;
-
-      margin-bottom: 14px;
-
+    .hero-title span {
       color: var(--cyan);
-
-      font-size: 12px;
-      font-weight: 700;
-
-      letter-spacing: 3px;
-      text-transform: uppercase;
     }
 
-    .section-title h2 {
-      font-size: clamp(30px, 5vw, 44px);
+    .hero-description {
+      max-width: 700px;
 
-      margin-bottom: 13px;
-    }
+      margin: auto;
 
-    .section-title p {
       color: var(--muted);
 
-      font-size: 17px;
-      line-height: 1.6;
+      font-size: clamp(17px, 2vw, 20px);
+
+      line-height: 1.7;
     }
 
-    /* =========================
-       CARDS
-    ========================== */
-
-    .cards {
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 20px;
-    }
-
-    .card {
-      position: relative;
-
-      padding: 30px;
-
-      min-height: 220px;
-
-      border: 1px solid var(--border);
-      border-radius: 20px;
-
-      background: rgba(255, 255, 255, 0.035);
-
-      overflow: hidden;
-
-      transition: 0.3s ease;
-    }
-
-    .card::after {
-      content: "";
-
-      position: absolute;
-
-      width: 150px;
-      height: 150px;
-
-      right: -70px;
-      top: -70px;
-
-      border-radius: 50%;
-
-      background: rgba(22, 143, 255, 0.08);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-
-      border-color: rgba(53, 223, 255, 0.35);
-
-      background: rgba(255, 255, 255, 0.055);
-    }
-
-    .card-icon {
-      width: 50px;
-      height: 50px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      margin-bottom: 20px;
-
-      border-radius: 14px;
-
-      font-size: 24px;
-
-      background: rgba(53, 223, 255, 0.08);
-
-      border: 1px solid rgba(53, 223, 255, 0.15);
-    }
-
-    .card h3 {
-      font-size: 20px;
-
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: var(--muted);
-
-      font-size: 14px;
-      line-height: 1.65;
-
-      margin-bottom: 18px;
-    }
-
-    .card-link {
-      color: var(--cyan);
-
-      text-decoration: none;
-
-      font-size: 14px;
-      font-weight: 700;
-    }
 
     /* =========================
        ABOUT
     ========================== */
+
+    .section {
+      padding: 75px 0;
+    }
 
     .about-box {
       padding: 45px;
@@ -417,6 +377,7 @@
       line-height: 1.7;
     }
 
+
     /* =========================
        FOOTER
     ========================== */
@@ -433,36 +394,12 @@
       text-align: center;
     }
 
+
     /* =========================
        MOBILE
     ========================== */
 
     @media (max-width: 800px) {
-
-      .nav-menu {
-        gap: 15px;
-      }
-
-      .nav-menu a:not(.nav-button) {
-        display: none;
-      }
-
-      .hero {
-        min-height: 65vh;
-
-        padding: 50px 0 60px;
-      }
-
-      .hero-logo img {
-        width: min(380px, 86vw);
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
 
       nav {
         height: 68px;
@@ -477,26 +414,108 @@
         height: 36px;
       }
 
-      .nav-button {
-        padding: 9px 16px;
+      /* Sembunyikan menu desktop */
+
+      .nav-menu {
+        display: none;
+      }
+
+      /* Tampilkan tombol hamburger */
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      /* Dropdown mengikuti tinggi header */
+
+      .mobile-menu {
+        top: 68px;
       }
 
       .hero {
-        min-height: 60vh;
+        padding: 35px 0 55px;
+      }
 
-        padding-top: 35px;
+      .hero-logo {
+        margin-bottom: 25px;
       }
 
       .hero-logo img {
-        width: 220px;
+        width: 190px;
+      }
+
+      .hero-logo::before {
+        width: 260px;
+        height: 260px;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-description {
+        font-size: 17px;
+
+        padding: 0 15px;
       }
 
       .section {
-        padding: 75px 0;
+        padding: 60px 0;
+      }
+    }
+
+
+    /* =========================
+       SMALL MOBILE
+    ========================== */
+
+    @media (max-width: 480px) {
+
+      .container {
+        width: 90%;
       }
 
-      .card {
-        padding: 25px;
+      .brand {
+        font-size: 19px;
+      }
+
+      .brand-logo {
+        width: 36px;
+        height: 36px;
+      }
+
+      .menu-toggle {
+        width: 40px;
+        height: 40px;
+
+        font-size: 21px;
+      }
+
+      .mobile-menu {
+        right: 5%;
+
+        width: 200px;
+      }
+
+      .hero {
+        padding: 30px 0 50px;
+      }
+
+      .hero-logo img {
+        width: 180px;
+      }
+
+      .hero-title {
+        font-size: 34px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .section {
+        padding: 55px 0;
       }
 
       .about-box {
@@ -506,7 +525,9 @@
   </style>
 </head>
 
+
 <body>
+
 
   <!-- =========================
        HEADER
@@ -517,6 +538,8 @@
     <div class="container">
 
       <nav>
+
+        <!-- BRAND -->
 
         <a href="#" class="brand">
 
@@ -533,30 +556,67 @@
         </a>
 
 
+        <!-- DESKTOP NAVIGATION -->
+
         <div class="nav-menu">
 
           <a href="#">
-            Beranda
+            Game Market
           </a>
 
-          <a href="#dunia">
-            Dunia Belajar
+          <a href="#">
+            Social Media
+          </a>
+
+          <a href="#">
+            Library
           </a>
 
           <a href="#tentang">
-            Tentang
-          </a>
-
-          <a
-            href="#dunia"
-            class="nav-button"
-          >
-            Jelajahi
+            About
           </a>
 
         </div>
 
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Buka menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
       </nav>
+
+
+      <!-- MOBILE DROPDOWN -->
+
+      <div
+        class="mobile-menu"
+        id="mobileMenu"
+      >
+
+        <a href="#">
+          Game Market
+        </a>
+
+        <a href="#">
+          Social Media
+        </a>
+
+        <a href="#">
+          Library
+        </a>
+
+        <a href="#tentang">
+          About
+        </a>
+
+      </div>
 
     </div>
 
@@ -564,10 +624,15 @@
 
 
   <!-- =========================
-       HERO
+       MAIN
   ========================== -->
 
   <main>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <section class="hero">
 
@@ -577,126 +642,21 @@
 
           <img
             src="asset/logo.png"
-            alt="Belajarverse"
+            alt="Logo Belajarverse"
           >
 
         </div>
 
-      </div>
 
-    </section>
-
-
-    <!-- =========================
-         DUNIA BELAJAR
-    ========================== -->
-
-    <section
-      class="section"
-      id="dunia"
-    >
-
-      <div class="container">
-
-        <div class="section-title">
-
-          <span class="section-label">
-            Dunia Belajar
-          </span>
-
-          <h2>
-            Temukan berbagai karya dan project
-          </h2>
-
-          <p>
-            Semua bagian dari dunia Belajar dalam satu tempat.
-          </p>
-
-        </div>
+        <h1 class="hero-title">
+          Belajar<span>verse</span>
+        </h1>
 
 
-        <div class="cards">
-
-          <!-- BELAJAR NULIS -->
-
-          <div class="card">
-
-            <div class="card-icon">
-              ✍️
-            </div>
-
-            <h3>
-              Belajar Nulis
-            </h3>
-
-            <p>
-              Kumpulan karya dan dunia cerita dari Belajar.
-            </p>
-
-            <a
-              href="#"
-              class="card-link"
-            >
-              Jelajahi →
-            </a>
-
-          </div>
-
-
-          <!-- BELAJAR MAIN -->
-
-          <div class="card">
-
-            <div class="card-icon">
-              🎮
-            </div>
-
-            <h3>
-              Belajar Main
-            </h3>
-
-            <p>
-              Dunia gaming, Mobile Legends,
-              dan berbagai konten hiburan.
-            </p>
-
-            <a
-              href="#"
-              class="card-link"
-            >
-              Jelajahi →
-            </a>
-
-          </div>
-
-
-          <!-- BELAJAR CODINGS -->
-
-          <div class="card">
-
-            <div class="card-icon">
-              💻
-            </div>
-
-            <h3>
-              Belajar Codings
-            </h3>
-
-            <p>
-              Project, eksperimen, dan berbagai
-              karya teknologi.
-            </p>
-
-            <a
-              href="#"
-              class="card-link"
-            >
-              Jelajahi →
-            </a>
-
-          </div>
-
-        </div>
+        <p class="hero-description">
+          Satu tempat untuk semua karya, project,
+          dan dunia Belajar.
+        </p>
 
       </div>
 
@@ -704,7 +664,7 @@
 
 
     <!-- =========================
-         TENTANG
+         ABOUT
     ========================== -->
 
     <section
@@ -732,6 +692,7 @@
 
     </section>
 
+
   </main>
 
 
@@ -748,6 +709,62 @@
     </div>
 
   </footer>
+
+
+  <!-- =========================
+       MOBILE MENU SCRIPT
+  ========================== -->
+
+  <script>
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+
+    menuToggle.addEventListener("click", function () {
+
+      mobileMenu.classList.toggle("active");
+
+      const isOpen =
+        mobileMenu.classList.contains("active");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+      menuToggle.textContent =
+        isOpen ? "✕" : "☰";
+
+    });
+
+
+    /* Tutup menu setelah memilih menu */
+
+    document
+      .querySelectorAll(".mobile-menu a")
+      .forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+          mobileMenu.classList.remove("active");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuToggle.textContent = "☰";
+
+        });
+
+      });
+
+  </script>
+
 
 </body>
 </html>
