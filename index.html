@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Belajarverse — Dunia Belajar</title>
+  <meta name="description" content="Satu tempat untuk semua karya, project, dan dunia Belajar.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #1F2833;
+      --bg-dark: #151D26;
+      --white: #ffffff;
+      --muted: #AEB8C4;
+      --blue: #168FFF;
+      --cyan: #35DFFF;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 80% 15%, rgba(30, 145, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 10% 85%, rgba(0, 220, 255, 0.08), transparent 30%),
+        linear-gradient(135deg, #1F2833 0%, #18222D 50%, #141C25 100%);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Dekorasi background */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 350px;
+      height: 350px;
+      border: 1px solid rgba(53, 223, 255, 0.12);
+      border-radius: 50%;
+      top: -180px;
+      left: -100px;
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      border: 1px solid rgba(22, 143, 255, 0.10);
+      border-radius: 50%;
+      right: -220px;
+      bottom: -220px;
+      pointer-events: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: var(--cyan);
+    }
+
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 0 100px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .logo-mark {
+      width: 115px;
+      height: 115px;
+      margin: 0 auto 30px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-b {
+      font-size: 108px;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      background: linear-gradient(180deg, #ffffff 15%, #B9EFFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 8px 20px rgba(0, 200, 255, 0.15));
+    }
+
+    .orbit {
+      position: absolute;
+      width: 125px;
+      height: 35px;
+      border: 8px solid transparent;
+      border-top-color: var(--cyan);
+      border-bottom-color: var(--blue);
+      border-radius: 50%;
+      transform: rotate(-25deg);
+      left: -8px;
+      top: 48px;
+    }
+
+    .orb {
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      right: -3px;
+      top: 27px;
+      box-shadow: 0 0 18px rgba(53, 223, 255, 0.5);
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 82px);
+      font-weight: 900;
+      letter-spacing: -4px;
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    h1 .blue {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      font-size: clamp(16px, 2.5vw, 21px);
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hero-line {
+      width: 70px;
+      height: 3px;
+      margin: 35px auto 0;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    /* SECTION */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 18px;
+      padding: 28px;
+      min-height: 170px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(53, 223, 255, 0.3);
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      color: #7F8B98;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        height: 70px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: calc(100vh - 70px);
+        padding-top: 40px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .logo-mark {
+        transform: scale(0.85);
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <nav>
+      <div class="nav-logo">
+        Belajar<span>verse</span>
+      </div>
+
+      <a href="#dunia" class="nav-link">Jelajahi</a>
+    </nav>
+
+    <main>
+
+      <section class="hero">
+
+        <div class="hero-content">
+
+          <div class="logo-mark">
+            <div class="logo-b">B</div>
+            <div class="orbit"></div>
+            <div class="orb"></div>
+          </div>
+
+          <h1>
+            Belajar<span class="blue">verse</span>
+          </h1>
+
+          <p class="tagline">
+            Satu tempat untuk semua karya, project, dan dunia Belajar.
+          </p>
+
+          <div class="hero-line"></div>
+
+        </div>
+
+      </section>
+
+      <section class="section" id="dunia">
+
+        <div class="section-title">
+          <h2>Dunia Belajar</h2>
+          <p>Temukan berbagai karya dan project di dalam Belajarverse.</p>
+        </div>
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="card-icon">✍️</div>
+            <h3>Belajar Nulis</h3>
+            <p>
+              Kumpulan karya dan dunia cerita dari Belajar.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎮</div>
+            <h3>Belajar Main</h3>
+            <p>
+              Dunia gaming, Mobile Legends, dan berbagai konten hiburan.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Belajar Codings</h3>
+            <p>
+              Project, eksperimen, dan berbagai karya teknologi.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      © 2026 Belajarverse. All rights reserved.
+    </footer>
+
+  </div>
+
+</body>
+</html>
