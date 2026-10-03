@@ -58,6 +58,7 @@
       overflow-x: hidden;
     }
 
+
     /* =========================
        BACKGROUND
     ========================== */
@@ -264,7 +265,7 @@
     ========================== */
 
     .hero {
-      padding: 45px 0 65px;
+      padding: 45px 0 35px;
 
       text-align: center;
     }
@@ -338,11 +339,311 @@
 
 
     /* =========================
+       BANNER CAROUSEL
+    ========================== */
+
+    .banner-section {
+      padding: 10px 0 30px;
+    }
+
+    .banner-carousel {
+      position: relative;
+
+      width: 100%;
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.045),
+          rgba(255, 255, 255, 0.015)
+        );
+
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.16);
+
+      touch-action: pan-y;
+    }
+
+    .banner-track {
+      display: flex;
+
+      width: 100%;
+
+      transition: transform 0.5s ease;
+    }
+
+    .banner-slide {
+      flex: 0 0 100%;
+
+      width: 100%;
+
+      display: block;
+
+      text-decoration: none;
+    }
+
+    .banner-slide img {
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      aspect-ratio: 16 / 6;
+
+      object-fit: cover;
+    }
+
+    .banner-dots {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: 7px;
+
+      margin-top: 14px;
+    }
+
+    .banner-dot {
+      width: 7px;
+      height: 7px;
+
+      padding: 0;
+
+      border: none;
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.25);
+
+      cursor: pointer;
+
+      transition: 0.25s ease;
+    }
+
+    .banner-dot.active {
+      width: 20px;
+
+      border-radius: 10px;
+
+      background: var(--cyan);
+    }
+
+
+    /* =========================
+       MOST POPULAR
+    ========================== */
+
+    .popular-section {
+      padding: 20px 0 45px;
+    }
+
+    .popular-box {
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.045),
+          rgba(255, 255, 255, 0.018)
+        );
+
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.12);
+    }
+
+    .popular-header {
+      display: flex;
+      align-items: center;
+
+      min-height: 58px;
+
+      padding: 0 22px;
+
+      border-bottom: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(53, 223, 255, 0.07),
+          transparent
+        );
+    }
+
+    .popular-header h2 {
+      font-size: 18px;
+
+      font-weight: 700;
+
+      letter-spacing: -0.3px;
+    }
+
+    .popular-content {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr))
+        minmax(85px, 0.8fr);
+
+      gap: 12px;
+
+      padding: 16px;
+    }
+
+    .popular-card {
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 145px;
+
+      padding: 14px 8px;
+
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+
+      background: rgba(255, 255, 255, 0.025);
+
+      color: var(--white);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .popular-card:hover {
+      transform: translateY(-3px);
+
+      border-color: rgba(53, 223, 255, 0.25);
+
+      background: rgba(53, 223, 255, 0.055);
+    }
+
+    .popular-logo {
+      width: 68px;
+      height: 68px;
+
+      object-fit: contain;
+
+      margin-bottom: 12px;
+    }
+
+    .popular-name {
+      color: var(--white);
+
+      font-size: 13px;
+      font-weight: 600;
+
+      text-align: center;
+
+      line-height: 1.3;
+    }
+
+
+    /* MORE CARD */
+
+    .popular-more {
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 145px;
+
+      padding: 14px 8px;
+
+      border: 1px solid rgba(53, 223, 255, 0.20);
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(53, 223, 255, 0.07),
+          rgba(22, 143, 255, 0.045)
+        );
+
+      color: var(--white);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .popular-more:hover {
+      transform: translateY(-3px);
+
+      border-color: rgba(53, 223, 255, 0.45);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(53, 223, 255, 0.12),
+          rgba(22, 143, 255, 0.07)
+        );
+    }
+
+    .more-icon {
+      width: 54px;
+      height: 54px;
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 8px);
+      grid-template-rows: repeat(2, 8px);
+
+      justify-content: center;
+      align-content: center;
+
+      gap: 6px;
+
+      margin-bottom: 12px;
+
+      border: 1px solid rgba(53, 223, 255, 0.30);
+      border-radius: 14px;
+
+      background: rgba(53, 223, 255, 0.06);
+    }
+
+    .more-icon span {
+      width: 8px;
+      height: 8px;
+
+      border: 1px solid var(--cyan);
+      border-radius: 2px;
+    }
+
+    .more-text {
+      color: var(--cyan);
+
+      font-size: 13px;
+      font-weight: 700;
+
+      letter-spacing: 0.4px;
+    }
+
+
+    /* =========================
        ABOUT
     ========================== */
 
     .section {
-      padding: 75px 0;
+      padding: 45px 0 75px;
     }
 
     .about-box {
@@ -416,7 +717,7 @@
 
 
     /* =========================
-       MOBILE
+       TABLET / MOBILE
     ========================== */
 
     @media (max-width: 800px) {
@@ -447,7 +748,7 @@
       }
 
       .hero {
-        padding: 35px 0 55px;
+        padding: 35px 0 25px;
       }
 
       .hero-logo {
@@ -473,8 +774,74 @@
         padding: 0 15px;
       }
 
+      .banner-section {
+        padding: 10px 0 25px;
+      }
+
+      .banner-carousel {
+        border-radius: 16px;
+      }
+
+      .banner-slide img {
+        aspect-ratio: 16 / 7;
+      }
+
+      .popular-section {
+        padding: 15px 0 35px;
+      }
+
+      .popular-content {
+        grid-template-columns:
+          repeat(4, minmax(0, 1fr))
+          minmax(75px, 0.9fr);
+
+        gap: 8px;
+
+        padding: 10px;
+      }
+
+      .popular-card,
+      .popular-more {
+        min-height: 115px;
+
+        padding: 10px 5px;
+
+        border-radius: 13px;
+      }
+
+      .popular-logo {
+        width: 52px;
+        height: 52px;
+
+        margin-bottom: 8px;
+      }
+
+      .popular-name,
+      .more-text {
+        font-size: 10px;
+      }
+
+      .more-icon {
+        width: 42px;
+        height: 42px;
+
+        grid-template-columns: repeat(2, 7px);
+        grid-template-rows: repeat(2, 7px);
+
+        gap: 5px;
+
+        margin-bottom: 8px;
+
+        border-radius: 11px;
+      }
+
+      .more-icon span {
+        width: 7px;
+        height: 7px;
+      }
+
       .section {
-        padding: 60px 0;
+        padding: 35px 0 55px;
       }
     }
 
@@ -512,7 +879,7 @@
       }
 
       .hero {
-        padding: 30px 0 50px;
+        padding: 30px 0 20px;
       }
 
       .hero-logo img {
@@ -528,8 +895,103 @@
         line-height: 1.65;
       }
 
+      .banner-section {
+        padding: 8px 0 22px;
+      }
+
+      .banner-carousel {
+        border-radius: 14px;
+      }
+
+      .banner-slide img {
+        aspect-ratio: 16 / 8;
+      }
+
+      .banner-dots {
+        margin-top: 10px;
+      }
+
+      .banner-dot {
+        width: 6px;
+        height: 6px;
+      }
+
+      .banner-dot.active {
+        width: 18px;
+      }
+
+      .popular-section {
+        padding: 10px 0 30px;
+      }
+
+      .popular-box {
+        border-radius: 18px;
+      }
+
+      .popular-header {
+        min-height: 50px;
+
+        padding: 0 16px;
+      }
+
+      .popular-header h2 {
+        font-size: 16px;
+      }
+
+      .popular-content {
+        display: grid;
+
+        grid-template-columns:
+          repeat(4, minmax(0, 1fr))
+          minmax(64px, 0.85fr);
+
+        gap: 6px;
+
+        padding: 8px;
+      }
+
+      .popular-card,
+      .popular-more {
+        min-height: 100px;
+
+        padding: 8px 3px;
+
+        border-radius: 11px;
+      }
+
+      .popular-logo {
+        width: 43px;
+        height: 43px;
+
+        margin-bottom: 7px;
+      }
+
+      .popular-name,
+      .more-text {
+        font-size: 9px;
+      }
+
+      .more-icon {
+        width: 36px;
+        height: 36px;
+
+        grid-template-columns: repeat(2, 6px);
+        grid-template-rows: repeat(2, 6px);
+
+        gap: 4px;
+
+        margin-bottom: 7px;
+
+        border-radius: 9px;
+      }
+
+      .more-icon span {
+        width: 6px;
+        height: 6px;
+      }
+
       .section {
-        padding: 55px 0;
+        padding: 30px 0 50px;
       }
 
       .about-box {
@@ -678,6 +1140,231 @@
 
 
     <!-- =========================
+         BANNER CAROUSEL
+    ========================== -->
+
+    <section class="banner-section">
+
+      <div class="container">
+
+        <div
+          class="banner-carousel"
+          id="bannerCarousel"
+        >
+
+          <div
+            class="banner-track"
+            id="bannerTrack"
+          >
+
+            <a
+              href="coming-soon.html"
+              class="banner-slide"
+            >
+              <img
+                src="asset/banner/bannerplaceholder01.png"
+                alt="Banner Belajarverse 1"
+              >
+            </a>
+
+            <a
+              href="coming-soon.html"
+              class="banner-slide"
+            >
+              <img
+                src="asset/banner/bannerplaceholder02.png"
+                alt="Banner Belajarverse 2"
+              >
+            </a>
+
+            <a
+              href="coming-soon.html"
+              class="banner-slide"
+            >
+              <img
+                src="asset/banner/bannerplaceholder03.png"
+                alt="Banner Belajarverse 3"
+              >
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- BANNER INDICATOR -->
+
+        <div
+          class="banner-dots"
+          id="bannerDots"
+        >
+
+          <button
+            class="banner-dot active"
+            type="button"
+            aria-label="Banner 1"
+          ></button>
+
+          <button
+            class="banner-dot"
+            type="button"
+            aria-label="Banner 2"
+          ></button>
+
+          <button
+            class="banner-dot"
+            type="button"
+            aria-label="Banner 3"
+          ></button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MOST POPULAR
+    ========================== -->
+
+    <section class="popular-section">
+
+      <div class="container">
+
+        <div class="popular-box">
+
+
+          <!-- TITLE -->
+
+          <div class="popular-header">
+
+            <h2>
+              Most Popular
+            </h2>
+
+          </div>
+
+
+          <!-- POPULAR ITEMS -->
+
+          <div class="popular-content">
+
+
+            <!-- 1 -->
+
+            <a
+              href="coming-soon.html"
+              class="popular-card"
+            >
+
+              <img
+                src="asset/logo/logoplaceholder.png"
+                alt="Belajar Main"
+                class="popular-logo"
+              >
+
+              <span class="popular-name">
+                Belajar Main
+              </span>
+
+            </a>
+
+
+            <!-- 2 -->
+
+            <a
+              href="coming-soon.html"
+              class="popular-card"
+            >
+
+              <img
+                src="asset/logo/logoplaceholder.png"
+                alt="Belajar Nulis"
+                class="popular-logo"
+              >
+
+              <span class="popular-name">
+                Belajar Nulis
+              </span>
+
+            </a>
+
+
+            <!-- 3 -->
+
+            <a
+              href="coming-soon.html"
+              class="popular-card"
+            >
+
+              <img
+                src="asset/logo/logoplaceholder.png"
+                alt="Belajar Codings"
+                class="popular-logo"
+              >
+
+              <span class="popular-name">
+                Belajar Codings
+              </span>
+
+            </a>
+
+
+            <!-- 4 -->
+
+            <a
+              href="coming-soon.html"
+              class="popular-card"
+            >
+
+              <img
+                src="asset/logo/logoplaceholder.png"
+                alt="Belajar Top Up"
+                class="popular-logo"
+              >
+
+              <span class="popular-name">
+                Belajar Top Up
+              </span>
+
+            </a>
+
+
+            <!-- MORE -->
+
+            <a
+              href="coming-soon.html"
+              class="popular-more"
+              aria-label="Lihat semua fitur Belajarverse"
+            >
+
+              <div class="more-icon">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+              <span class="more-text">
+                MORE
+              </span>
+
+            </a>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
          ABOUT
     ========================== -->
 
@@ -733,10 +1420,14 @@
 
 
   <!-- =========================
-       MOBILE MENU SCRIPT
+       JAVASCRIPT
   ========================== -->
 
   <script>
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
 
     const menuToggle =
       document.getElementById("menuToggle");
@@ -783,6 +1474,153 @@
         });
 
       });
+
+
+    /* =========================
+       BANNER CAROUSEL
+    ========================== */
+
+    const bannerTrack =
+      document.getElementById("bannerTrack");
+
+    const bannerDots =
+      document.querySelectorAll(".banner-dot");
+
+    const bannerCarousel =
+      document.getElementById("bannerCarousel");
+
+    let currentBanner = 0;
+
+    let bannerTimer;
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    function showBanner(index) {
+
+      currentBanner = index;
+
+      bannerTrack.style.transform =
+        "translateX(-" + (currentBanner * 100) + "%)";
+
+
+      bannerDots.forEach(function (dot, i) {
+
+        dot.classList.toggle(
+          "active",
+          i === currentBanner
+        );
+
+      });
+
+    }
+
+
+    function nextBanner() {
+
+      currentBanner++;
+
+      if (currentBanner >= bannerDots.length) {
+        currentBanner = 0;
+      }
+
+      showBanner(currentBanner);
+
+    }
+
+
+    function startBannerTimer() {
+
+      clearInterval(bannerTimer);
+
+      bannerTimer = setInterval(
+        nextBanner,
+        4500
+      );
+
+    }
+
+
+    bannerDots.forEach(function (dot, index) {
+
+      dot.addEventListener("click", function () {
+
+        showBanner(index);
+
+        startBannerTimer();
+
+      });
+
+    });
+
+
+    /* =========================
+       SWIPE MOBILE
+    ========================== */
+
+    bannerCarousel.addEventListener(
+      "touchstart",
+      function (event) {
+
+        touchStartX =
+          event.changedTouches[0].screenX;
+
+      },
+      { passive: true }
+    );
+
+
+    bannerCarousel.addEventListener(
+      "touchend",
+      function (event) {
+
+        touchEndX =
+          event.changedTouches[0].screenX;
+
+        const swipeDistance =
+          touchEndX - touchStartX;
+
+
+        if (Math.abs(swipeDistance) < 40) {
+          return;
+        }
+
+
+        if (swipeDistance < 0) {
+
+          currentBanner++;
+
+          if (
+            currentBanner >= bannerDots.length
+          ) {
+            currentBanner = 0;
+          }
+
+        } else {
+
+          currentBanner--;
+
+          if (currentBanner < 0) {
+            currentBanner = bannerDots.length - 1;
+          }
+
+        }
+
+
+        showBanner(currentBanner);
+
+        startBannerTimer();
+
+      },
+      { passive: true }
+    );
+
+
+    /* Mulai carousel */
+
+    startBannerTimer();
 
   </script>
 
