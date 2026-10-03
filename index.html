@@ -440,6 +440,19 @@
 
     .popular-box {
       overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.045),
+          rgba(255, 255, 255, 0.018)
+        );
+
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.12);
     }
 
     .popular-header {
@@ -448,31 +461,45 @@
 
       min-height: 58px;
 
-      padding: 0 0 15px;
+      padding: 0 22px;
+
+      border-bottom: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(53, 223, 255, 0.07),
+          transparent
+        );
     }
 
     .popular-header h2 {
-      font-size: 20px;
+      font-size: 18px;
 
       font-weight: 700;
 
       letter-spacing: -0.3px;
     }
 
+
+    /* =========================
+       POPULAR CONTENT
+    ========================== */
+
     .popular-content {
       display: flex;
+      align-items: center;
 
-      gap: 18px;
+      gap: 28px;
+
+      padding: 24px 28px;
 
       overflow-x: auto;
       overflow-y: hidden;
 
-      padding: 5px 0 12px;
-
-      scroll-snap-type: x mandatory;
-
       scrollbar-width: none;
-      -ms-overflow-style: none;
+
+      -webkit-overflow-scrolling: touch;
     }
 
     .popular-content::-webkit-scrollbar {
@@ -480,20 +507,22 @@
     }
 
 
-    /* POPULAR ITEM */
+    /* =========================
+       POPULAR ITEM
+    ========================== */
 
     .popular-card {
-      flex: 0 0 125px;
+      flex: 0 0 180px;
 
       display: flex;
 
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
 
       padding: 0;
 
       border: none;
-      border-radius: 0;
 
       background: transparent;
 
@@ -501,43 +530,73 @@
 
       text-decoration: none;
 
-      scroll-snap-align: start;
+      transition:
+        transform 0.25s ease;
     }
 
+    .popular-card:hover {
+      transform: translateY(-4px);
+    }
+
+
+    /* =========================
+       POPULAR LOGO
+    ========================== */
+
     .popular-logo {
-      width: 115px;
-      height: 115px;
+      width: 150px;
+      height: 150px;
 
       object-fit: cover;
 
-      margin-bottom: 10px;
-
-      border-radius: 18px;
+      border-radius: 22px;
 
       display: block;
+
+      margin-bottom: 14px;
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.18);
+
+      transition:
+        transform 0.25s ease,
+        border-radius 0.25s ease;
     }
 
+    .popular-card:hover .popular-logo {
+      transform: scale(1.03);
+    }
+
+
+    /* =========================
+       POPULAR NAME
+    ========================== */
+
     .popular-name {
+      display: block;
+
       width: 100%;
 
       color: var(--white);
 
-      font-size: 13px;
+      font-size: 15px;
+
       font-weight: 600;
 
       text-align: center;
 
-      white-space: nowrap;
+      line-height: 1.2;
 
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
 
-    /* MORE */
+    /* =========================
+       MORE
+    ========================== */
 
     .popular-more {
-      flex: 0 0 125px;
+      flex: 0 0 150px;
 
       display: flex;
 
@@ -545,23 +604,52 @@
       align-items: center;
       justify-content: center;
 
-      padding: 0;
+      min-height: 150px;
 
-      border: none;
-      border-radius: 0;
+      padding: 14px 8px;
 
-      background: transparent;
+      border: 1px solid rgba(53, 223, 255, 0.20);
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(53, 223, 255, 0.07),
+          rgba(22, 143, 255, 0.045)
+        );
 
       color: var(--white);
 
       text-decoration: none;
 
-      scroll-snap-align: start;
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
     }
 
+    .popular-more:hover {
+      transform: translateY(-4px);
+
+      border-color: rgba(53, 223, 255, 0.45);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(53, 223, 255, 0.12),
+          rgba(22, 143, 255, 0.07)
+        );
+    }
+
+
+    /* =========================
+       MORE ICON
+    ========================== */
+
     .more-icon {
-      width: 60px;
-      height: 60px;
+      width: 54px;
+      height: 54px;
 
       display: grid;
 
@@ -573,10 +661,11 @@
 
       gap: 6px;
 
-      margin-bottom: 10px;
+      margin-bottom: 12px;
 
       border: 1px solid rgba(53, 223, 255, 0.30);
-      border-radius: 16px;
+
+      border-radius: 14px;
 
       background: rgba(53, 223, 255, 0.06);
     }
@@ -594,11 +683,10 @@
       color: var(--cyan);
 
       font-size: 13px;
+
       font-weight: 700;
 
       letter-spacing: 0.4px;
-
-      white-space: nowrap;
     }
 
 
@@ -711,6 +799,9 @@
         top: 68px;
       }
 
+
+      /* HERO */
+
       .hero {
         padding: 35px 0 25px;
       }
@@ -738,6 +829,9 @@
         padding: 0 15px;
       }
 
+
+      /* BANNER */
+
       .banner-section {
         padding: 10px 0 25px;
       }
@@ -746,46 +840,67 @@
         border-radius: 16px;
       }
 
+
+      /* MOST POPULAR */
+
       .popular-section {
         padding: 15px 0 35px;
       }
 
+      .popular-box {
+        border-radius: 18px;
+      }
+
       .popular-header {
         min-height: 50px;
+
+        padding: 0 16px;
       }
 
       .popular-header h2 {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .popular-content {
-        gap: 14px;
+        gap: 18px;
 
-        padding: 5px 0 12px;
+        padding: 22px 18px;
+
+        overflow-x: auto;
       }
 
-      .popular-card,
-      .popular-more {
-        flex: 0 0 90px;
+      .popular-card {
+        flex: 0 0 105px;
       }
 
       .popular-logo {
-        width: 82px;
-        height: 82px;
+        width: 88px;
+        height: 88px;
 
-        border-radius: 15px;
+        border-radius: 16px;
 
-        margin-bottom: 8px;
+        margin-bottom: 10px;
       }
 
-      .popular-name,
-      .more-text {
+      .popular-name {
         font-size: 11px;
+
+        white-space: nowrap;
+      }
+
+      .popular-more {
+        flex: 0 0 105px;
+
+        min-height: 105px;
+
+        padding: 8px;
+
+        border-radius: 16px;
       }
 
       .more-icon {
-        width: 48px;
-        height: 48px;
+        width: 42px;
+        height: 42px;
 
         grid-template-columns: repeat(2, 7px);
         grid-template-rows: repeat(2, 7px);
@@ -794,13 +909,20 @@
 
         margin-bottom: 8px;
 
-        border-radius: 13px;
+        border-radius: 11px;
       }
 
       .more-icon span {
         width: 7px;
         height: 7px;
       }
+
+      .more-text {
+        font-size: 10px;
+      }
+
+
+      /* ABOUT */
 
       .section {
         padding: 35px 0 55px;
@@ -840,6 +962,9 @@
         width: 200px;
       }
 
+
+      /* HERO */
+
       .hero {
         padding: 30px 0 20px;
       }
@@ -854,8 +979,12 @@
 
       .hero-description {
         font-size: 16px;
+
         line-height: 1.65;
       }
+
+
+      /* BANNER */
 
       .banner-section {
         padding: 8px 0 22px;
@@ -878,47 +1007,67 @@
         width: 18px;
       }
 
+
+      /* MOST POPULAR */
+
       .popular-section {
         padding: 10px 0 30px;
       }
 
+      .popular-box {
+        border-radius: 18px;
+      }
+
       .popular-header {
-        min-height: 48px;
-        padding-bottom: 12px;
+        min-height: 50px;
+
+        padding: 0 16px;
       }
 
       .popular-header h2 {
-        font-size: 17px;
+        font-size: 16px;
       }
 
       .popular-content {
-        gap: 12px;
+        gap: 16px;
 
-        padding: 5px 0 12px;
+        padding: 20px 16px;
+
+        overflow-x: auto;
       }
 
-      .popular-card,
-      .popular-more {
-        flex: 0 0 85px;
+      .popular-card {
+        flex: 0 0 100px;
       }
 
       .popular-logo {
-        width: 78px;
-        height: 78px;
+        width: 84px;
+        height: 84px;
 
-        border-radius: 14px;
+        border-radius: 16px;
 
-        margin-bottom: 7px;
+        margin-bottom: 9px;
       }
 
-      .popular-name,
-      .more-text {
+      .popular-name {
         font-size: 10px;
+
+        white-space: nowrap;
+      }
+
+      .popular-more {
+        flex: 0 0 100px;
+
+        min-height: 100px;
+
+        padding: 8px;
+
+        border-radius: 15px;
       }
 
       .more-icon {
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
 
         grid-template-columns: repeat(2, 6px);
         grid-template-rows: repeat(2, 6px);
@@ -927,13 +1076,20 @@
 
         margin-bottom: 7px;
 
-        border-radius: 11px;
+        border-radius: 10px;
       }
 
       .more-icon span {
         width: 6px;
         height: 6px;
       }
+
+      .more-text {
+        font-size: 10px;
+      }
+
+
+      /* ABOUT */
 
       .section {
         padding: 30px 0 50px;
@@ -1106,30 +1262,38 @@
               href="coming-soon.html"
               class="banner-slide"
             >
+
               <img
                 src="asset/banner/bannerplaceholder01.png"
                 alt="Banner Belajarverse 1"
               >
+
             </a>
+
 
             <a
               href="coming-soon.html"
               class="banner-slide"
             >
+
               <img
                 src="asset/banner/bannerplaceholder02.png"
                 alt="Banner Belajarverse 2"
               >
+
             </a>
+
 
             <a
               href="coming-soon.html"
               class="banner-slide"
             >
+
               <img
                 src="asset/banner/bannerplaceholder03.png"
                 alt="Banner Belajarverse 3"
               >
+
             </a>
 
           </div>
@@ -1571,4 +1735,4 @@
 
 
 </body>
-  </html>
+            </html>
