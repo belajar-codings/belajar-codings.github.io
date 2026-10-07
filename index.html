@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Belajarverse</title>
 
@@ -11,41 +17,70 @@
     content="Satu tempat untuk semua karya, project, dan dunia Belajar."
   >
 
+
   <style>
+
+    /* =========================
+       RESET
+    ========================== */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+
+    /* =========================
+       VARIABLES
+    ========================== */
+
     :root {
+
       --bg: #1F2833;
       --bg-dark: #151D26;
+
       --white: #ffffff;
       --muted: #AEB8C4;
+
       --blue: #168FFF;
       --cyan: #35DFFF;
+
       --border: rgba(255, 255, 255, 0.08);
+
     }
+
+
+    /* =========================
+       HTML / BODY
+    ========================== */
 
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
       background:
+
         radial-gradient(
           circle at 85% 10%,
           rgba(22, 143, 255, 0.14),
           transparent 30%
         ),
+
         radial-gradient(
           circle at 10% 80%,
           rgba(53, 223, 255, 0.07),
           transparent 30%
         ),
+
         linear-gradient(
           135deg,
           #1F2833 0%,
@@ -54,16 +89,20 @@
         );
 
       color: var(--white);
+
       min-height: 100vh;
+
       overflow-x: hidden;
+
     }
 
 
     /* =========================
-       BACKGROUND
+       BACKGROUND DECORATION
     ========================== */
 
     body::before {
+
       content: "";
 
       position: fixed;
@@ -71,17 +110,24 @@
       width: 430px;
       height: 430px;
 
-      border: 1px solid rgba(53, 223, 255, 0.10);
+      border:
+        1px solid
+        rgba(53, 223, 255, 0.10);
+
       border-radius: 50%;
 
       top: -250px;
       left: -120px;
 
       pointer-events: none;
+
       z-index: -1;
+
     }
 
+
     body::after {
+
       content: "";
 
       position: fixed;
@@ -89,19 +135,32 @@
       width: 480px;
       height: 480px;
 
-      border: 1px solid rgba(22, 143, 255, 0.08);
+      border:
+        1px solid
+        rgba(22, 143, 255, 0.08);
+
       border-radius: 50%;
 
       right: -280px;
       bottom: -280px;
 
       pointer-events: none;
+
       z-index: -1;
+
     }
 
+
+    /* =========================
+       CONTAINER
+    ========================== */
+
     .container {
+
       width: min(1120px, 90%);
+
       margin: auto;
+
     }
 
 
@@ -110,65 +169,98 @@
     ========================== */
 
     header {
+
       position: sticky;
+
       top: 0;
+
       z-index: 100;
 
-      background: rgba(21, 29, 38, 0.90);
+      background:
+        rgba(21, 29, 38, 0.90);
 
       backdrop-filter: blur(14px);
+
       -webkit-backdrop-filter: blur(14px);
 
-      border-bottom: 1px solid var(--border);
+      border-bottom:
+        1px solid
+        var(--border);
+
     }
 
+
     nav {
+
       height: 76px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
     }
 
+
     .brand {
+
       display: flex;
+
       align-items: center;
+
       gap: 10px;
 
       color: var(--white);
+
       text-decoration: none;
 
       font-size: 21px;
+
       font-weight: 800;
 
       letter-spacing: -0.6px;
+
     }
 
+
     .brand-logo {
+
       width: 40px;
       height: 40px;
 
       object-fit: contain;
+
     }
+
 
     .brand-name {
       color: var(--white);
     }
+
 
     .brand-name span {
       color: var(--cyan);
     }
 
 
-    /* DESKTOP MENU */
+    /* =========================
+       DESKTOP MENU
+    ========================== */
 
     .nav-menu {
+
       display: flex;
+
       align-items: center;
+
       gap: 30px;
+
     }
 
+
     .nav-menu a {
+
       color: var(--muted);
 
       text-decoration: none;
@@ -176,16 +268,21 @@
       font-size: 14px;
 
       transition: 0.25s ease;
+
     }
+
 
     .nav-menu a:hover {
       color: var(--white);
     }
 
 
-    /* MOBILE MENU BUTTON */
+    /* =========================
+       MOBILE MENU BUTTON
+    ========================== */
 
     .menu-toggle {
+
       display: none;
 
       width: 42px;
@@ -194,50 +291,69 @@
       align-items: center;
       justify-content: center;
 
-      border: 1px solid rgba(53, 223, 255, 0.35);
+      border:
+        1px solid
+        rgba(53, 223, 255, 0.35);
+
       border-radius: 12px;
 
-      background: rgba(53, 223, 255, 0.05);
+      background:
+        rgba(53, 223, 255, 0.05);
 
       color: var(--white);
 
       font-size: 22px;
 
       cursor: pointer;
+
     }
 
 
-    /* MOBILE DROPDOWN */
+    /* =========================
+       MOBILE DROPDOWN
+    ========================== */
 
     .mobile-menu {
+
       display: none;
 
       position: absolute;
 
       top: 76px;
+
       right: 5%;
 
       width: 210px;
 
       padding: 10px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid
+        var(--border);
+
       border-radius: 16px;
 
-      background: rgba(21, 29, 38, 0.97);
+      background:
+        rgba(21, 29, 38, 0.97);
 
       backdrop-filter: blur(18px);
+
       -webkit-backdrop-filter: blur(18px);
 
       box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.25);
+        0 18px 40px
+        rgba(0, 0, 0, 0.25);
+
     }
+
 
     .mobile-menu.active {
       display: block;
     }
 
+
     .mobile-menu a {
+
       display: block;
 
       padding: 13px 14px;
@@ -251,12 +367,17 @@
       font-size: 14px;
 
       transition: 0.2s ease;
+
     }
 
+
     .mobile-menu a:hover {
+
       color: var(--white);
 
-      background: rgba(53, 223, 255, 0.08);
+      background:
+        rgba(53, 223, 255, 0.08);
+
     }
 
 
@@ -265,17 +386,24 @@
     ========================== */
 
     .banner-section {
-      padding: 25px 0 30px;
+
+      padding: 28px 0 30px;
+
     }
 
+
     .banner-carousel {
+
       position: relative;
 
       width: 100%;
 
       overflow: hidden;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid
+        var(--border);
+
       border-radius: 20px;
 
       background:
@@ -286,69 +414,100 @@
         );
 
       box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.16);
+        0 18px 45px
+        rgba(0, 0, 0, 0.16);
 
       touch-action: pan-y;
+
     }
 
+
     .banner-track {
+
       display: flex;
 
       width: 100%;
 
-      transition: transform 0.5s ease;
+      transition:
+        transform 0.5s ease;
+
     }
 
+
     .banner-slide {
-      flex: 0 0 100%;
+
+      flex:
+        0 0 100%;
 
       width: 100%;
 
       display: block;
 
       text-decoration: none;
+
     }
 
+
     .banner-slide img {
+
       display: block;
 
       width: 100%;
+
       height: auto;
+
     }
 
+
+    /* =========================
+       BANNER DOTS
+    ========================== */
+
     .banner-dots {
+
       display: flex;
 
       justify-content: center;
+
       align-items: center;
 
       gap: 7px;
 
       margin-top: 14px;
+
     }
 
+
     .banner-dot {
+
       width: 7px;
       height: 7px;
 
       padding: 0;
 
       border: none;
+
       border-radius: 50%;
 
-      background: rgba(255, 255, 255, 0.25);
+      background:
+        rgba(255, 255, 255, 0.25);
 
       cursor: pointer;
 
       transition: 0.25s ease;
+
     }
 
+
     .banner-dot.active {
+
       width: 20px;
 
       border-radius: 10px;
 
-      background: var(--cyan);
+      background:
+        var(--cyan);
+
     }
 
 
@@ -357,13 +516,20 @@
     ========================== */
 
     .popular-section {
-      padding: 10px 0 35px;
+
+      padding: 10px 0 25px;
+
     }
 
+
     .popular-box {
+
       overflow: hidden;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid
+        var(--border);
+
       border-radius: 22px;
 
       background:
@@ -374,18 +540,25 @@
         );
 
       box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.12);
+        0 18px 45px
+        rgba(0, 0, 0, 0.12);
+
     }
 
+
     .popular-header {
+
       display: flex;
+
       align-items: center;
 
       min-height: 58px;
 
       padding: 0 22px;
 
-      border-bottom: 1px solid var(--border);
+      border-bottom:
+        1px solid
+        var(--border);
 
       background:
         linear-gradient(
@@ -393,14 +566,18 @@
           rgba(53, 223, 255, 0.07),
           transparent
         );
+
     }
 
+
     .popular-header h2 {
+
       font-size: 18px;
 
       font-weight: 700;
 
       letter-spacing: -0.3px;
+
     }
 
 
@@ -409,7 +586,9 @@
     ========================== */
 
     .popular-content {
+
       display: flex;
+
       align-items: center;
 
       gap: 28px;
@@ -417,12 +596,15 @@
       padding: 24px 28px;
 
       overflow-x: auto;
+
       overflow-y: hidden;
 
       scrollbar-width: none;
 
       -webkit-overflow-scrolling: touch;
+
     }
+
 
     .popular-content::-webkit-scrollbar {
       display: none;
@@ -434,12 +616,16 @@
     ========================== */
 
     .popular-card {
-      flex: 0 0 180px;
+
+      flex:
+        0 0 180px;
 
       display: flex;
 
       flex-direction: column;
+
       align-items: center;
+
       justify-content: flex-start;
 
       padding: 0;
@@ -454,7 +640,9 @@
 
       transition:
         transform 0.25s ease;
+
     }
+
 
     .popular-card:hover {
       transform: translateY(-4px);
@@ -466,6 +654,7 @@
     ========================== */
 
     .popular-logo {
+
       width: 150px;
       height: 150px;
 
@@ -478,12 +667,14 @@
       margin-bottom: 14px;
 
       box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.18);
+        0 10px 25px
+        rgba(0, 0, 0, 0.18);
 
       transition:
-        transform 0.25s ease,
-        border-radius 0.25s ease;
+        transform 0.25s ease;
+
     }
+
 
     .popular-card:hover .popular-logo {
       transform: scale(1.03);
@@ -495,6 +686,7 @@
     ========================== */
 
     .popular-name {
+
       display: block;
 
       width: 100%;
@@ -510,6 +702,7 @@
       line-height: 1.2;
 
       white-space: nowrap;
+
     }
 
 
@@ -518,19 +711,25 @@
     ========================== */
 
     .popular-more {
-      flex: 0 0 150px;
+
+      flex:
+        0 0 150px;
 
       display: flex;
 
       flex-direction: column;
+
       align-items: center;
+
       justify-content: center;
 
       min-height: 150px;
 
       padding: 14px 8px;
 
-      border: 1px solid rgba(53, 223, 255, 0.20);
+      border:
+        1px solid
+        rgba(53, 223, 255, 0.20);
 
       border-radius: 20px;
 
@@ -549,12 +748,17 @@
         transform 0.25s ease,
         border-color 0.25s ease,
         background 0.25s ease;
+
     }
 
-    .popular-more:hover {
-      transform: translateY(-4px);
 
-      border-color: rgba(53, 223, 255, 0.45);
+    .popular-more:hover {
+
+      transform:
+        translateY(-4px);
+
+      border-color:
+        rgba(53, 223, 255, 0.45);
 
       background:
         linear-gradient(
@@ -562,6 +766,7 @@
           rgba(53, 223, 255, 0.12),
           rgba(22, 143, 255, 0.07)
         );
+
     }
 
 
@@ -570,38 +775,54 @@
     ========================== */
 
     .more-icon {
+
       width: 54px;
       height: 54px;
 
       display: grid;
 
-      grid-template-columns: repeat(2, 8px);
-      grid-template-rows: repeat(2, 8px);
+      grid-template-columns:
+        repeat(2, 8px);
+
+      grid-template-rows:
+        repeat(2, 8px);
 
       justify-content: center;
+
       align-content: center;
 
       gap: 6px;
 
       margin-bottom: 12px;
 
-      border: 1px solid rgba(53, 223, 255, 0.30);
+      border:
+        1px solid
+        rgba(53, 223, 255, 0.30);
 
       border-radius: 14px;
 
-      background: rgba(53, 223, 255, 0.06);
+      background:
+        rgba(53, 223, 255, 0.06);
+
     }
 
+
     .more-icon span {
+
       width: 8px;
       height: 8px;
 
-      border: 1px solid var(--cyan);
+      border:
+        1px solid
+        var(--cyan);
 
       border-radius: 2px;
+
     }
 
+
     .more-text {
+
       color: var(--cyan);
 
       font-size: 13px;
@@ -609,222 +830,386 @@
       font-weight: 700;
 
       letter-spacing: 0.4px;
+
     }
 
 
     /* =========================
-       ABOUT COMPACT
+       SECTION DIVIDER
+       
+       Bentuk:
+       ────────────── • •
+    ========================== */
+
+    .section-divider {
+
+      width: 58%;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin:
+        4px 0 30px;
+
+    }
+
+
+    .divider-line {
+
+      width: 100%;
+
+      height: 1px;
+
+      background:
+        rgba(255, 255, 255, 0.16);
+
+    }
+
+
+    .divider-dots {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 5px;
+
+      flex-shrink: 0;
+
+    }
+
+
+    .divider-dots span {
+
+      width: 5px;
+      height: 5px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255, 255, 255, 0.35);
+
+    }
+
+
+    /* =========================
+       ABOUT BELAJARVERSE
     ========================== */
 
     .about-section {
-      padding: 5px 0 45px;
+
+      padding: 0 0 25px;
+
     }
 
-    .about-card {
+
+    .about-box {
+
       position: relative;
 
-      min-height: 150px;
+      min-height: 300px;
 
       display: flex;
+
       align-items: center;
 
-      gap: 30px;
+      gap: 45px;
 
-      padding: 28px 32px;
+      padding: 42px 42px 60px;
 
-      border: 1px solid var(--border);
-      border-radius: 22px;
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 24px;
 
       background:
         linear-gradient(
           135deg,
-          rgba(255, 255, 255, 0.045),
+          rgba(255, 255, 255, 0.055),
           rgba(255, 255, 255, 0.018)
         );
 
       box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.12);
+        0 18px 45px
+        rgba(0, 0, 0, 0.12);
+
     }
 
-    .about-logo {
-      flex: 0 0 105px;
 
-      width: 105px;
-      height: 105px;
+    /* =========================
+       ABOUT LOGO
+    ========================== */
+
+    .about-logo {
+
+      flex:
+        0 0 180px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+    .about-logo img {
+
+      width: 170px;
+      height: 170px;
 
       object-fit: contain;
 
       filter:
-        drop-shadow(0 12px 22px rgba(0, 0, 0, 0.20))
-        drop-shadow(0 0 20px rgba(53, 223, 255, 0.10));
+        drop-shadow(
+          0 15px 25px
+          rgba(0, 0, 0, 0.20)
+        )
+        drop-shadow(
+          0 0 22px
+          rgba(53, 223, 255, 0.10)
+        );
+
     }
+
+
+    /* =========================
+       ABOUT TEXT
+    ========================== */
 
     .about-content {
+
       flex: 1;
 
-      padding-bottom: 28px;
+      text-align: center;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
     }
+
 
     .about-content h2 {
-      font-size: 25px;
 
-      margin-bottom: 8px;
+      font-size: 30px;
 
-      letter-spacing: -0.5px;
+      font-weight: 800;
+
+      margin-bottom: 14px;
+
+      letter-spacing: -0.7px;
+
     }
 
+
     .about-content p {
-      max-width: 720px;
+
+      max-width: 540px;
 
       color: var(--muted);
 
-      font-size: 15px;
+      font-size: 17px;
 
-      line-height: 1.65;
+      line-height: 1.7;
+
     }
 
+
+    /* =========================
+       ABOUT LINK
+    ========================== */
+
     .about-link {
+
       position: absolute;
 
       right: 28px;
-      bottom: 20px;
+
+      bottom: 22px;
 
       color: var(--cyan);
 
-      font-size: 13px;
+      font-size: 14px;
+
       font-weight: 700;
 
       text-decoration: none;
 
       transition:
-        color 0.25s ease,
-        transform 0.25s ease;
+        0.25s ease;
+
     }
 
+
     .about-link:hover {
+
       color: var(--white);
 
-      transform: translateX(3px);
+      transform:
+        translateX(3px);
+
     }
 
 
     /* =========================
-       ARTICLES
+       ARTICLE SECTION
     ========================== */
 
-    .articles-section {
-      padding: 0 0 70px;
-    }
+    .article-section {
 
-    .articles-header {
-      margin-bottom: 20px;
-    }
+      padding:
+        0 0 70px;
 
-    .articles-header h2 {
-      font-size: 25px;
-
-      letter-spacing: -0.5px;
-
-      margin-bottom: 5px;
-    }
-
-    .articles-header p {
-      color: var(--muted);
-
-      font-size: 14px;
-
-      line-height: 1.5;
     }
 
 
-    /* ARTICLE CATEGORY TABS */
+    .article-heading {
+
+      margin-bottom: 22px;
+
+    }
+
+
+    .article-heading h2 {
+
+      font-size: 30px;
+
+      font-weight: 800;
+
+      letter-spacing: -0.8px;
+
+    }
+
+
+    /* =========================
+       ARTICLE TABS
+    ========================== */
 
     .article-tabs {
+
       display: grid;
 
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:
+        repeat(3, 1fr);
 
-      gap: 8px;
+      width: 100%;
+
+      margin-bottom: 24px;
 
       padding: 5px;
 
-      margin-bottom: 18px;
+      border:
+        1px solid
+        var(--border);
 
-      border: 1px solid var(--border);
-      border-radius: 15px;
+      border-radius: 18px;
 
-      background: rgba(0, 0, 0, 0.12);
+      background:
+        rgba(10, 17, 24, 0.20);
+
     }
 
-    .article-tab {
-      min-height: 46px;
 
-      padding: 10px 12px;
+    .article-tab {
+
+      min-height: 54px;
 
       border: none;
-      border-radius: 11px;
+
+      border-radius: 13px;
 
       background: transparent;
 
       color: var(--muted);
 
-      font-family: inherit;
+      font-size: 14px;
 
-      font-size: 13px;
       font-weight: 700;
 
       cursor: pointer;
 
       transition:
-        color 0.25s ease,
-        background 0.25s ease,
-        transform 0.25s ease;
+        0.25s ease;
+
     }
+
 
     .article-tab:hover {
+
       color: var(--white);
+
     }
 
+
     .article-tab.active {
+
       color: var(--white);
 
       background:
         linear-gradient(
           135deg,
-          rgba(22, 143, 255, 0.28),
-          rgba(53, 223, 255, 0.14)
+          rgba(22, 143, 255, 0.42),
+          rgba(53, 223, 255, 0.16)
         );
 
       box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.12);
+        0 8px 20px
+        rgba(0, 0, 0, 0.12);
+
     }
 
 
-    /* ARTICLE LIST */
+    /* =========================
+       ARTICLE LIST
+    ========================== */
 
     .article-list {
-      display: flex;
+
+      display: none;
 
       flex-direction: column;
 
-      gap: 12px;
+      gap: 14px;
+
     }
 
 
-    /* ARTICLE CARD */
+    .article-list.active {
+      display: flex;
+    }
+
+
+    /* =========================
+       ARTICLE CARD
+    ========================== */
 
     .article-card {
+
       display: flex;
+
       align-items: center;
 
       gap: 20px;
 
-      min-height: 150px;
+      min-height: 130px;
 
-      padding: 14px;
+      padding: 16px;
 
-      border: 1px solid var(--border);
-      border-radius: 18px;
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 20px;
 
       background:
         linear-gradient(
@@ -841,119 +1226,165 @@
         transform 0.25s ease,
         border-color 0.25s ease,
         background 0.25s ease;
+
     }
 
-    .article-card:hover {
-      transform: translateY(-2px);
 
-      border-color: rgba(53, 223, 255, 0.25);
+    .article-card:hover {
+
+      transform:
+        translateY(-2px);
+
+      border-color:
+        rgba(53, 223, 255, 0.20);
 
       background:
         linear-gradient(
           135deg,
-          rgba(53, 223, 255, 0.055),
-          rgba(255, 255, 255, 0.02)
+          rgba(255, 255, 255, 0.065),
+          rgba(255, 255, 255, 0.025)
         );
+
     }
 
+
+    /* =========================
+       ARTICLE THUMBNAIL
+    ========================== */
+
     .article-thumbnail {
-      flex: 0 0 210px;
 
-      width: 210px;
-      height: 118px;
+      flex:
+        0 0 170px;
 
-      object-fit: cover;
+      width: 170px;
 
-      border-radius: 13px;
+      aspect-ratio: 16 / 9;
+
+      overflow: hidden;
+
+      border-radius: 14px;
+
+      background:
+        rgba(0, 0, 0, 0.20);
+
+    }
+
+
+    .article-thumbnail img {
 
       display: block;
 
-      background: #151D26;
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
     }
 
+
+    /* =========================
+       ARTICLE INFO
+    ========================== */
+
     .article-info {
+
       flex: 1;
 
       min-width: 0;
+
     }
 
-    .article-title {
-      margin-bottom: 7px;
 
-      font-size: 18px;
-      font-weight: 700;
+    .article-info h3 {
+
+      margin-bottom: 8px;
+
+      font-size: 19px;
 
       line-height: 1.3;
 
-      letter-spacing: -0.3px;
+      font-weight: 750;
+
     }
 
-    .article-description {
+
+    .article-info p {
+
       color: var(--muted);
 
-      font-size: 13px;
+      font-size: 14px;
 
-      line-height: 1.55;
+      line-height: 1.6;
 
       display: -webkit-box;
+
       -webkit-line-clamp: 2;
+
       -webkit-box-orient: vertical;
 
       overflow: hidden;
+
     }
 
 
-    /* ARTICLE MORE */
+    /* =========================
+       ARTICLE MORE BUTTON
+    ========================== */
 
     .article-more {
+
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
-      min-height: 64px;
+      min-height: 62px;
 
-      margin-top: 16px;
+      margin-top: 20px;
 
-      padding: 14px 20px;
+      border:
+        1px solid
+        rgba(53, 223, 255, 0.20);
 
-      border: 1px solid rgba(53, 223, 255, 0.16);
       border-radius: 17px;
 
       background:
         linear-gradient(
           135deg,
-          rgba(53, 223, 255, 0.055),
-          rgba(22, 143, 255, 0.035)
+          rgba(53, 223, 255, 0.045),
+          rgba(22, 143, 255, 0.025)
         );
 
       color: var(--cyan);
 
-      font-size: 14px;
+      font-size: 15px;
+
       font-weight: 700;
 
       text-decoration: none;
 
       transition:
-        border-color 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+        0.25s ease;
+
     }
 
-    .article-more:hover {
-      color: var(--white);
 
-      border-color: rgba(53, 223, 255, 0.35);
+    .article-more:hover {
+
+      border-color:
+        rgba(53, 223, 255, 0.40);
 
       background:
         linear-gradient(
           135deg,
-          rgba(53, 223, 255, 0.09),
-          rgba(22, 143, 255, 0.06)
+          rgba(53, 223, 255, 0.08),
+          rgba(22, 143, 255, 0.045)
         );
 
-      transform: translateY(-2px);
+      color: var(--white);
+
     }
 
 
@@ -962,44 +1393,58 @@
     ========================== */
 
     footer {
+
       padding: 35px 0;
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid
+        var(--border);
 
       color: #7F8B98;
 
       font-size: 13px;
 
       text-align: center;
+
     }
 
 
     /* =========================
-       TABLET / MOBILE
+       TABLET
     ========================== */
 
     @media (max-width: 800px) {
+
+
+      /* HEADER */
 
       nav {
         height: 68px;
       }
 
+
       .brand {
         font-size: 19px;
       }
 
+
       .brand-logo {
+
         width: 36px;
         height: 36px;
+
       }
+
 
       .nav-menu {
         display: none;
       }
 
+
       .menu-toggle {
         display: flex;
       }
+
 
       .mobile-menu {
         top: 68px;
@@ -1009,8 +1454,12 @@
       /* BANNER */
 
       .banner-section {
-        padding: 20px 0 25px;
+
+        padding:
+          20px 0 25px;
+
       }
+
 
       .banner-carousel {
         border-radius: 16px;
@@ -1020,215 +1469,286 @@
       /* MOST POPULAR */
 
       .popular-section {
-        padding: 10px 0 30px;
+
+        padding:
+          10px 0 22px;
+
       }
+
 
       .popular-box {
         border-radius: 18px;
       }
 
+
       .popular-header {
+
         min-height: 50px;
 
-        padding: 0 16px;
+        padding:
+          0 16px;
+
       }
+
 
       .popular-header h2 {
         font-size: 16px;
       }
 
+
       .popular-content {
+
         gap: 18px;
 
-        padding: 22px 18px;
+        padding:
+          22px 18px;
 
-        overflow-x: auto;
       }
+
 
       .popular-card {
-        flex: 0 0 105px;
+
+        flex:
+          0 0 105px;
+
       }
 
+
       .popular-logo {
+
         width: 88px;
         height: 88px;
 
         border-radius: 16px;
 
         margin-bottom: 10px;
+
       }
 
+
       .popular-name {
+
         font-size: 11px;
 
         white-space: nowrap;
+
       }
 
+
       .popular-more {
-        flex: 0 0 105px;
+
+        flex:
+          0 0 105px;
 
         min-height: 105px;
 
         padding: 8px;
 
         border-radius: 16px;
+
       }
 
+
       .more-icon {
+
         width: 42px;
         height: 42px;
 
-        grid-template-columns: repeat(2, 7px);
-        grid-template-rows: repeat(2, 7px);
+        grid-template-columns:
+          repeat(2, 7px);
+
+        grid-template-rows:
+          repeat(2, 7px);
 
         gap: 5px;
 
         margin-bottom: 8px;
 
         border-radius: 11px;
+
       }
 
+
       .more-icon span {
+
         width: 7px;
         height: 7px;
+
       }
+
 
       .more-text {
         font-size: 10px;
       }
 
 
+      /* DIVIDER */
+
+      .section-divider {
+
+        width: 64%;
+
+        margin:
+          2px 0 24px;
+
+      }
+
+
       /* ABOUT */
 
       .about-section {
-        padding: 0 0 40px;
+
+        padding:
+          0 0 25px;
+
       }
 
-      .about-card {
-        min-height: 135px;
 
-        gap: 18px;
+      .about-box {
 
-        padding: 22px 20px;
+        min-height: 275px;
+
+        gap: 28px;
+
+        padding:
+          32px 28px 58px;
+
+        border-radius: 20px;
+
       }
+
 
       .about-logo {
-        flex: 0 0 75px;
 
-        width: 75px;
-        height: 75px;
+        flex:
+          0 0 125px;
+
       }
 
-      .about-content {
-        padding-bottom: 24px;
+
+      .about-logo img {
+
+        width: 120px;
+        height: 120px;
+
       }
+
 
       .about-content h2 {
-        font-size: 20px;
+
+        font-size: 25px;
+
+        margin-bottom: 10px;
+
       }
+
 
       .about-content p {
-        font-size: 13px;
 
-        line-height: 1.55;
+        font-size: 15px;
+
+        line-height: 1.6;
+
       }
+
 
       .about-link {
-        right: 20px;
-        bottom: 14px;
 
-        font-size: 11px;
-      }
+        right: 22px;
 
+        bottom: 18px;
 
-      /* ARTICLES */
-
-      .articles-section {
-        padding: 0 0 55px;
-      }
-
-      .articles-header {
-        margin-bottom: 15px;
-      }
-
-      .articles-header h2 {
-        font-size: 21px;
-      }
-
-      .articles-header p {
         font-size: 13px;
+
       }
+
+
+      /* ARTICLE */
+
+      .article-section {
+
+        padding:
+          0 0 55px;
+
+      }
+
+
+      .article-heading h2 {
+        font-size: 27px;
+      }
+
 
       .article-tabs {
-        gap: 5px;
 
-        padding: 4px;
+        border-radius: 15px;
 
-        border-radius: 13px;
-
-        margin-bottom: 14px;
       }
+
 
       .article-tab {
-        min-height: 43px;
 
-        padding: 8px 5px;
+        min-height: 50px;
 
-        font-size: 11px;
+        font-size: 12px;
 
-        border-radius: 9px;
       }
 
-      .article-list {
-        gap: 10px;
-      }
 
       .article-card {
-        gap: 13px;
+
+        gap: 14px;
 
         min-height: 105px;
 
-        padding: 10px;
-
-        border-radius: 15px;
-      }
-
-      .article-thumbnail {
-        flex: 0 0 110px;
-
-        width: 110px;
-        height: 70px;
-
-        border-radius: 10px;
-      }
-
-      .article-title {
-        margin-bottom: 5px;
-
-        font-size: 14px;
-
-        line-height: 1.3;
-      }
-
-      .article-description {
-        font-size: 11px;
-
-        line-height: 1.45;
-
-        -webkit-line-clamp: 2;
-      }
-
-      .article-more {
-        min-height: 56px;
-
-        margin-top: 13px;
-
         padding: 12px;
 
-        border-radius: 14px;
+        border-radius: 17px;
+
+      }
+
+
+      .article-thumbnail {
+
+        flex:
+          0 0 125px;
+
+        width: 125px;
+
+        border-radius: 11px;
+
+      }
+
+
+      .article-info h3 {
+
+        font-size: 15px;
+
+        margin-bottom: 6px;
+
+      }
+
+
+      .article-info p {
 
         font-size: 12px;
+
+        line-height: 1.5;
+
       }
+
+
+      .article-more {
+
+        min-height: 58px;
+
+        margin-top: 16px;
+
+        border-radius: 15px;
+
+        font-size: 13px;
+
+      }
+
     }
 
 
@@ -1238,51 +1758,73 @@
 
     @media (max-width: 480px) {
 
+
       .container {
         width: 90%;
       }
+
+
+      /* HEADER */
 
       .brand {
         font-size: 19px;
       }
 
+
       .brand-logo {
+
         width: 36px;
         height: 36px;
+
       }
 
+
       .menu-toggle {
+
         width: 40px;
         height: 40px;
 
         font-size: 21px;
+
       }
 
+
       .mobile-menu {
+
         right: 5%;
 
         width: 200px;
+
       }
 
 
       /* BANNER */
 
       .banner-section {
-        padding: 15px 0 22px;
+
+        padding:
+          18px 0 22px;
+
       }
+
 
       .banner-carousel {
         border-radius: 14px;
       }
 
+
       .banner-dots {
         margin-top: 10px;
       }
 
+
       .banner-dot {
+
         width: 6px;
         height: 6px;
+
       }
+
 
       .banner-dot.active {
         width: 18px;
@@ -1292,191 +1834,324 @@
       /* MOST POPULAR */
 
       .popular-section {
-        padding: 8px 0 28px;
+
+        padding:
+          8px 0 20px;
+
       }
+
 
       .popular-box {
         border-radius: 18px;
       }
 
+
       .popular-header {
+
         min-height: 50px;
 
-        padding: 0 16px;
+        padding:
+          0 16px;
+
       }
+
 
       .popular-header h2 {
         font-size: 16px;
       }
 
+
       .popular-content {
+
         gap: 16px;
 
-        padding: 20px 16px;
+        padding:
+          20px 16px;
 
-        overflow-x: auto;
       }
+
 
       .popular-card {
-        flex: 0 0 100px;
+
+        flex:
+          0 0 100px;
+
       }
 
+
       .popular-logo {
+
         width: 84px;
         height: 84px;
 
         border-radius: 16px;
 
         margin-bottom: 9px;
+
       }
 
+
       .popular-name {
+
         font-size: 10px;
 
         white-space: nowrap;
+
       }
 
+
       .popular-more {
-        flex: 0 0 100px;
+
+        flex:
+          0 0 100px;
 
         min-height: 100px;
 
         padding: 8px;
 
         border-radius: 15px;
+
       }
 
+
       .more-icon {
+
         width: 40px;
         height: 40px;
 
-        grid-template-columns: repeat(2, 6px);
-        grid-template-rows: repeat(2, 6px);
+        grid-template-columns:
+          repeat(2, 6px);
+
+        grid-template-rows:
+          repeat(2, 6px);
 
         gap: 4px;
 
         margin-bottom: 7px;
 
         border-radius: 10px;
+
       }
 
+
       .more-icon span {
+
         width: 6px;
         height: 6px;
+
       }
+
 
       .more-text {
         font-size: 10px;
       }
 
 
+      /* DIVIDER */
+
+      .section-divider {
+
+        width: 72%;
+
+        gap: 7px;
+
+        margin:
+          0 0 22px;
+
+      }
+
+
+      .divider-dots {
+        gap: 4px;
+      }
+
+
+      .divider-dots span {
+
+        width: 4px;
+        height: 4px;
+
+      }
+
+
       /* ABOUT */
 
-      .about-section {
-        padding: 0 0 35px;
+      .about-box {
+
+        min-height: 245px;
+
+        gap: 16px;
+
+        padding:
+          28px 20px 52px;
+
+        border-radius: 18px;
+
       }
 
-      .about-card {
-        gap: 14px;
-
-        min-height: 125px;
-
-        padding: 18px 15px;
-      }
 
       .about-logo {
-        flex: 0 0 62px;
 
-        width: 62px;
-        height: 62px;
-      }
+        flex:
+          0 0 95px;
 
-      .about-content {
-        padding-bottom: 23px;
-      }
-
-      .about-content h2 {
-        font-size: 17px;
-
-        margin-bottom: 5px;
-      }
-
-      .about-content p {
-        font-size: 11px;
-
-        line-height: 1.5;
-      }
-
-      .about-link {
-        right: 15px;
-        bottom: 11px;
-
-        font-size: 10px;
       }
 
 
-      /* ARTICLES */
-
-      .articles-section {
-        padding-bottom: 45px;
-      }
-
-      .articles-header h2 {
-        font-size: 20px;
-      }
-
-      .articles-header p {
-        font-size: 12px;
-      }
-
-      .article-tabs {
-        grid-template-columns: repeat(3, 1fr);
-
-        margin-bottom: 12px;
-      }
-
-      .article-tab {
-        min-height: 40px;
-
-        font-size: 10px;
-      }
-
-      .article-card {
-        gap: 10px;
-
-        padding: 8px;
-
-        min-height: 94px;
-      }
-
-      .article-thumbnail {
-        flex: 0 0 92px;
+      .about-logo img {
 
         width: 92px;
-        height: 60px;
+        height: 92px;
 
-        border-radius: 9px;
       }
 
-      .article-title {
+
+      .about-content h2 {
+
+        font-size: 22px;
+
+        margin-bottom: 8px;
+
+      }
+
+
+      .about-content p {
+
+        font-size: 13px;
+
+        line-height: 1.55;
+
+      }
+
+
+      .about-link {
+
+        right: 17px;
+
+        bottom: 16px;
+
         font-size: 12px;
 
-        margin-bottom: 4px;
       }
 
-      .article-description {
-        font-size: 10px;
 
-        line-height: 1.4;
+      /* ARTICLE */
+
+      .article-heading {
+
+        margin-bottom: 18px;
+
       }
 
-      .article-more {
-        min-height: 52px;
+
+      .article-heading h2 {
+        font-size: 26px;
+      }
+
+
+      .article-tabs {
+
+        margin-bottom: 18px;
+
+        padding: 4px;
+
+        border-radius: 14px;
+
+      }
+
+
+      .article-tab {
+
+        min-height: 47px;
+
+        padding:
+          0 5px;
 
         font-size: 11px;
+
       }
+
+
+      .article-list {
+
+        gap: 12px;
+
+      }
+
+
+      .article-card {
+
+        gap: 12px;
+
+        min-height: 96px;
+
+        padding: 10px;
+
+        border-radius: 16px;
+
+      }
+
+
+      .article-thumbnail {
+
+        flex:
+          0 0 105px;
+
+        width: 105px;
+
+        border-radius: 10px;
+
+      }
+
+
+      .article-info h3 {
+
+        font-size: 14px;
+
+        line-height: 1.3;
+
+        margin-bottom: 5px;
+
+      }
+
+
+      .article-info p {
+
+        font-size: 11px;
+
+        line-height: 1.45;
+
+        -webkit-line-clamp: 2;
+
+      }
+
+
+      .article-more {
+
+        min-height: 54px;
+
+        margin-top: 14px;
+
+        border-radius: 14px;
+
+        font-size: 12px;
+
+      }
+
+
+      /* FOOTER */
+
+      footer {
+
+        padding:
+          30px 0;
+
+      }
+
     }
+
   </style>
+
 </head>
 
 
@@ -1493,9 +2168,13 @@
 
       <nav>
 
+
         <!-- BRAND -->
 
-        <a href="/" class="brand">
+        <a
+          href="/"
+          class="brand"
+        >
 
           <img
             src="asset/logo.png"
@@ -1504,13 +2183,15 @@
           >
 
           <div class="brand-name">
+
             Belajar<span>verse</span>
+
           </div>
 
         </a>
 
 
-        <!-- DESKTOP NAVIGATION -->
+        <!-- DESKTOP MENU -->
 
         <div class="nav-menu">
 
@@ -1526,14 +2207,14 @@
             Library
           </a>
 
-          <a href="about.html">
+          <a href="#tentang">
             About
           </a>
 
         </div>
 
 
-        <!-- MOBILE MENU BUTTON -->
+        <!-- MOBILE BUTTON -->
 
         <button
           class="menu-toggle"
@@ -1541,13 +2222,15 @@
           aria-label="Buka menu"
           aria-expanded="false"
         >
+
           ☰
+
         </button>
 
       </nav>
 
 
-      <!-- MOBILE DROPDOWN -->
+      <!-- MOBILE MENU -->
 
       <div
         class="mobile-menu"
@@ -1566,7 +2249,7 @@
           Library
         </a>
 
-        <a href="about.html">
+        <a href="#tentang">
           About
         </a>
 
@@ -1592,6 +2275,7 @@
 
       <div class="container">
 
+
         <div
           class="banner-carousel"
           id="bannerCarousel"
@@ -1601,6 +2285,7 @@
             class="banner-track"
             id="bannerTrack"
           >
+
 
             <a
               href="coming-soon.html"
@@ -1640,12 +2325,13 @@
 
             </a>
 
+
           </div>
 
         </div>
 
 
-        <!-- BANNER INDICATOR -->
+        <!-- DOTS -->
 
         <div
           class="banner-dots"
@@ -1672,6 +2358,7 @@
 
         </div>
 
+
       </div>
 
     </section>
@@ -1685,10 +2372,9 @@
 
       <div class="container">
 
+
         <div class="popular-box">
 
-
-          <!-- TITLE -->
 
           <div class="popular-header">
 
@@ -1698,8 +2384,6 @@
 
           </div>
 
-
-          <!-- POPULAR ITEMS -->
 
           <div class="popular-content">
 
@@ -1789,7 +2473,7 @@
             <a
               href="coming-soon.html"
               class="popular-more"
-              aria-label="Lihat semua fitur Belajarverse"
+              aria-label="Lihat semua"
             >
 
               <div class="more-icon">
@@ -1812,29 +2496,60 @@
 
         </div>
 
+
       </div>
 
     </section>
 
 
     <!-- =========================
+         DIVIDER
+         ────────────── • •
+    ========================== -->
+
+    <div class="container">
+
+      <div class="section-divider">
+
+        <div class="divider-line"></div>
+
+        <div class="divider-dots">
+
+          <span></span>
+          <span></span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
          ABOUT BELAJARVERSE
     ========================== -->
 
-    <section class="about-section">
+    <section
+      class="about-section"
+      id="tentang"
+    >
 
       <div class="container">
 
-        <div class="about-card">
+
+        <div class="about-box">
 
 
           <!-- LOGO -->
 
-          <img
-            src="asset/logo.png"
-            alt="Logo Belajarverse"
-            class="about-logo"
-          >
+          <div class="about-logo">
+
+            <img
+              src="asset/logo.png"
+              alt="Logo Belajarverse"
+            >
+
+          </div>
 
 
           <!-- TEXT -->
@@ -1856,13 +2571,15 @@
           <!-- ABOUT LINK -->
 
           <a
-            href="about.html"
+            href="coming-soon.html"
             class="about-link"
           >
-            About BelajarVerse →
+            About Belajarverse →
           </a>
 
+
         </div>
+
 
       </div>
 
@@ -1870,89 +2587,121 @@
 
 
     <!-- =========================
-         ARTICLES
+         DIVIDER
+         ────────────── • •
     ========================== -->
 
-    <section class="articles-section">
+    <div class="container">
+
+      <div class="section-divider">
+
+        <div class="divider-line"></div>
+
+        <div class="divider-dots">
+
+          <span></span>
+          <span></span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         ARTIKEL
+    ========================== -->
+
+    <section class="article-section">
 
       <div class="container">
 
 
-        <!-- ARTICLE HEADER -->
+        <!-- TITLE -->
 
-        <div class="articles-header">
+        <div class="article-heading">
 
           <h2>
             Artikel
           </h2>
 
-          <p>
-            Temukan informasi dan tulisan terbaru dari Belajarverse.
-          </p>
-
         </div>
 
 
-        <!-- CATEGORY TABS -->
+        <!-- =========================
+             CATEGORY TABS
+        ========================== -->
 
         <div class="article-tabs">
 
+
           <button
-            type="button"
             class="article-tab active"
+            type="button"
             data-category="skin"
           >
             Bocoran Skin
           </button>
 
+
           <button
-            type="button"
             class="article-tab"
+            type="button"
             data-category="esport"
           >
             E-sport
           </button>
 
+
           <button
-            type="button"
             class="article-tab"
+            type="button"
             data-category="lainnya"
           >
             Artikel Lainnya
           </button>
 
+
         </div>
 
 
-        <!-- ARTICLE LIST -->
+        <!-- =========================
+             BOCORAN SKIN
+        ========================== -->
 
         <div
-          class="article-list"
-          id="articleList"
+          class="article-list active"
+          id="skin"
         >
+
 
           <!-- ARTICLE 1 -->
 
           <a
-            href="artikel-bocoran-skin-1.html"
+            href="coming-soon.html"
             class="article-card"
           >
 
-            <img
-              src="asset/banner/bannerplaceholder01.png"
-              alt="Artikel Bocoran Skin"
-              class="article-thumbnail"
-            >
+            <div class="article-thumbnail">
+
+              <img
+                src="asset/banner/bannerplaceholder01.png"
+                alt="Bocoran Skin Terbaru Mobile Legends"
+              >
+
+            </div>
+
 
             <div class="article-info">
 
-              <h3 class="article-title">
+              <h3>
                 Bocoran Skin Terbaru Mobile Legends
               </h3>
 
-              <p class="article-description">
-                Simak informasi terbaru mengenai skin yang
-                akan hadir di Mobile Legends.
+              <p>
+                Simak informasi terbaru mengenai
+                skin yang akan hadir di Mobile Legends.
               </p>
 
             </div>
@@ -1963,25 +2712,29 @@
           <!-- ARTICLE 2 -->
 
           <a
-            href="artikel-bocoran-skin-2.html"
+            href="coming-soon.html"
             class="article-card"
           >
 
-            <img
-              src="asset/banner/bannerplaceholder02.png"
-              alt="Artikel Bocoran Skin"
-              class="article-thumbnail"
-            >
+            <div class="article-thumbnail">
+
+              <img
+                src="asset/banner/bannerplaceholder02.png"
+                alt="Bocoran Skin Mobile Legends"
+              >
+
+            </div>
+
 
             <div class="article-info">
 
-              <h3 class="article-title">
-                Skin Baru yang Siap Hadir di Land of Dawn
+              <h3>
+                Bocoran Skin Mobile Legends Berikutnya
               </h3>
 
-              <p class="article-description">
-                Berbagai informasi mengenai skin terbaru
-                dan event yang akan datang.
+              <p>
+                Informasi dan kabar terbaru mengenai
+                skin yang sedang dipersiapkan.
               </p>
 
             </div>
@@ -1992,43 +2745,292 @@
           <!-- ARTICLE 3 -->
 
           <a
-            href="artikel-bocoran-skin-3.html"
+            href="coming-soon.html"
             class="article-card"
           >
 
-            <img
-              src="asset/banner/bannerplaceholder03.png"
-              alt="Artikel Bocoran Skin"
-              class="article-thumbnail"
-            >
+            <div class="article-thumbnail">
+
+              <img
+                src="asset/banner/bannerplaceholder03.png"
+                alt="Update Skin Mobile Legends"
+              >
+
+            </div>
+
 
             <div class="article-info">
 
-              <h3 class="article-title">
-                Update Bocoran Skin Mobile Legends
+              <h3>
+                Update Skin Terbaru Yang Wajib Kamu Tahu
               </h3>
 
-              <p class="article-description">
-                Kumpulan bocoran dan kabar terbaru seputar
-                skin Mobile Legends.
+              <p>
+                Kumpulan informasi terbaru seputar
+                skin dan update Mobile Legends.
               </p>
 
             </div>
 
           </a>
 
+
+          <!-- MORE -->
+
+          <a
+            href="coming-soon.html"
+            class="article-more"
+          >
+            Lihat artikel serupa →
+          </a>
+
+
         </div>
 
 
-        <!-- ARTICLE CATEGORY LINK -->
+        <!-- =========================
+             E-SPORT
+        ========================== -->
 
-        <a
-          href="artikel-bocoran-skin.html"
-          class="article-more"
-          id="articleMore"
+        <div
+          class="article-list"
+          id="esport"
         >
-          Lihat semua artikel Bocoran Skin →
-        </a>
+
+
+          <!-- ARTICLE 1 -->
+
+          <a
+            href="coming-soon.html"
+            class="article-card"
+          >
+
+            <div class="article-thumbnail">
+
+              <img
+                src="asset/banner/bannerplaceholder01.png"
+                alt="Berita E-sport"
+              >
+
+            </div>
+
+
+            <div class="article-info">
+
+              <h3>
+                Berita E-sport Terbaru
+              </h3>
+
+              <p>
+                Ikuti perkembangan terbaru dunia
+                e-sport dan kompetisi Mobile Legends.
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- ARTICLE 2 -->
+
+          <a
+            href="coming-soon.html"
+            class="article-card"
+          >
+
+            <div class="article-thumbnail">
+
+              <img
+                src="asset/banner/bannerplaceholder02.png"
+                alt="Turnamen E-sport"
+              >
+
+            </div>
+
+
+            <div class="article-info">
+
+              <h3>
+                Update Turnamen E-sport
+              </h3>
+
+              <p>
+                Berbagai informasi terbaru mengenai
+                pertandingan dan turnamen e-sport.
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- ARTICLE 3 -->
+
+          <a
+            href="coming-soon.html"
+            class="article-card"
+          >
+
+            <div class="article-thumbnail">
+
+              <img
+                src="asset/banner/bannerplaceholder03.png"
+                alt="Tim E-sport"
+              >
+
+            </div>
+
+
+            <div class="article-info">
+
+              <h3>
+                Kabar Terbaru Tim E-sport
+              </h3>
+
+              <p>
+                Simak kabar terbaru dari berbagai
+                tim dan pemain e-sport.
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- MORE -->
+
+          <a
+            href="coming-soon.html"
+            class="article-more"
+          >
+            Lihat artikel serupa →
+          </a>
+
+
+        </div>
+
+
+        <!-- =========================
+             ARTIKEL LAINNYA
+        ========================== -->
+
+        <div
+          class="article-list"
+          id="lainnya"
+        >
+
+
+          <!-- ARTICLE 1 -->
+
+          <a
+            href="coming-soon.html"
+            class="article-card"
+          >
+
+            <div class="article-thumbnail">
+
+              <img
+                src="asset/banner/bannerplaceholder01.png"
+                alt="Artikel Belajarverse"
+              >
+
+            </div>
+
+
+            <div class="article-info">
+
+              <h3>
+                Artikel Terbaru Belajarverse
+              </h3>
+
+              <p>
+                Berbagai tulisan menarik dan informasi
+                terbaru dari dunia Belajarverse.
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- ARTICLE 2 -->
+
+          <a
+            href="coming-soon.html"
+            class="article-card"
+          >
+
+            <div class="article-thumbnail">
+
+              <img
+                src="asset/banner/bannerplaceholder02.png"
+                alt="Informasi Belajarverse"
+              >
+
+            </div>
+
+
+            <div class="article-info">
+
+              <h3>
+                Informasi Terbaru Belajarverse
+              </h3>
+
+              <p>
+                Temukan berbagai informasi dan tulisan
+                menarik lainnya di Belajarverse.
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- ARTICLE 3 -->
+
+          <a
+            href="coming-soon.html"
+            class="article-card"
+          >
+
+            <div class="article-thumbnail">
+
+              <img
+                src="asset/banner/bannerplaceholder03.png"
+                alt="Kumpulan Artikel"
+              >
+
+            </div>
+
+
+            <div class="article-info">
+
+              <h3>
+                Kumpulan Artikel Pilihan
+              </h3>
+
+              <p>
+                Berbagai artikel pilihan yang bisa
+                kamu baca di Belajarverse.
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- MORE -->
+
+          <a
+            href="coming-soon.html"
+            class="article-more"
+          >
+            Lihat artikel serupa →
+          </a>
+
+
+        </div>
+
 
       </div>
 
@@ -2059,6 +3061,7 @@
 
   <script>
 
+
     /* =========================
        MOBILE MENU
     ========================== */
@@ -2066,48 +3069,65 @@
     const menuToggle =
       document.getElementById("menuToggle");
 
+
     const mobileMenu =
       document.getElementById("mobileMenu");
 
 
-    menuToggle.addEventListener("click", function () {
+    menuToggle.addEventListener(
+      "click",
+      function () {
 
-      mobileMenu.classList.toggle("active");
-
-      const isOpen =
-        mobileMenu.classList.contains("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen
-      );
-
-      menuToggle.textContent =
-        isOpen ? "✕" : "☰";
-
-    });
+        mobileMenu.classList.toggle("active");
 
 
-    /* Tutup menu setelah memilih menu */
+        const isOpen =
+          mobileMenu.classList.contains("active");
+
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+
+        menuToggle.textContent =
+          isOpen ? "✕" : "☰";
+
+      }
+    );
+
+
+    /* Tutup menu setelah memilih */
 
     document
       .querySelectorAll(".mobile-menu a")
-      .forEach(function (link) {
+      .forEach(
+        function (link) {
 
-        link.addEventListener("click", function () {
+          link.addEventListener(
+            "click",
+            function () {
 
-          mobileMenu.classList.remove("active");
+              mobileMenu.classList.remove(
+                "active"
+              );
 
-          menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
+
+              menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+
+              menuToggle.textContent =
+                "☰";
+
+            }
           );
 
-          menuToggle.textContent = "☰";
-
-        });
-
-      });
+        }
+      );
 
 
     /* =========================
@@ -2115,13 +3135,22 @@
     ========================== */
 
     const bannerTrack =
-      document.getElementById("bannerTrack");
+      document.getElementById(
+        "bannerTrack"
+      );
+
 
     const bannerDots =
-      document.querySelectorAll(".banner-dot");
+      document.querySelectorAll(
+        ".banner-dot"
+      );
+
 
     const bannerCarousel =
-      document.getElementById("bannerCarousel");
+      document.getElementById(
+        "bannerCarousel"
+      );
+
 
     let currentBanner = 0;
 
@@ -2136,18 +3165,23 @@
 
       currentBanner = index;
 
+
       bannerTrack.style.transform =
-        "translateX(-" + (currentBanner * 100) + "%)";
+        "translateX(-" +
+        (currentBanner * 100) +
+        "%)";
 
 
-      bannerDots.forEach(function (dot, i) {
+      bannerDots.forEach(
+        function (dot, i) {
 
-        dot.classList.toggle(
-          "active",
-          i === currentBanner
-        );
+          dot.classList.toggle(
+            "active",
+            i === currentBanner
+          );
 
-      });
+        }
+      );
 
     }
 
@@ -2156,9 +3190,16 @@
 
       currentBanner++;
 
-      if (currentBanner >= bannerDots.length) {
+
+      if (
+        currentBanner >=
+        bannerDots.length
+      ) {
+
         currentBanner = 0;
+
       }
+
 
       showBanner(currentBanner);
 
@@ -2167,40 +3208,54 @@
 
     function startBannerTimer() {
 
-      clearInterval(bannerTimer);
-
-      bannerTimer = setInterval(
-        nextBanner,
-        4500
+      clearInterval(
+        bannerTimer
       );
+
+
+      bannerTimer =
+        setInterval(
+          nextBanner,
+          4500
+        );
 
     }
 
 
-    bannerDots.forEach(function (dot, index) {
+    bannerDots.forEach(
+      function (dot, index) {
 
-      dot.addEventListener("click", function () {
+        dot.addEventListener(
+          "click",
+          function () {
 
-        showBanner(index);
+            showBanner(index);
 
-        startBannerTimer();
+            startBannerTimer();
 
-      });
+          }
+        );
 
-    });
+      }
+    );
 
 
-    /* SWIPE MOBILE */
+    /* =========================
+       BANNER SWIPE
+    ========================== */
 
     bannerCarousel.addEventListener(
       "touchstart",
       function (event) {
 
         touchStartX =
-          event.changedTouches[0].screenX;
+          event.changedTouches[0]
+            .screenX;
 
       },
-      { passive: true }
+      {
+        passive: true
+      }
     );
 
 
@@ -2209,335 +3264,165 @@
       function (event) {
 
         touchEndX =
-          event.changedTouches[0].screenX;
+          event.changedTouches[0]
+            .screenX;
+
 
         const swipeDistance =
-          touchEndX - touchStartX;
+          touchEndX -
+          touchStartX;
 
 
-        if (Math.abs(swipeDistance) < 40) {
+        if (
+          Math.abs(
+            swipeDistance
+          ) < 40
+        ) {
+
           return;
+
         }
 
 
-        if (swipeDistance < 0) {
+        if (
+          swipeDistance < 0
+        ) {
 
           currentBanner++;
 
+
           if (
-            currentBanner >= bannerDots.length
+            currentBanner >=
+            bannerDots.length
           ) {
+
             currentBanner = 0;
+
           }
 
         } else {
 
           currentBanner--;
 
-          if (currentBanner < 0) {
-            currentBanner = bannerDots.length - 1;
+
+          if (
+            currentBanner < 0
+          ) {
+
+            currentBanner =
+              bannerDots.length - 1;
+
           }
 
         }
 
 
-        showBanner(currentBanner);
+        showBanner(
+          currentBanner
+        );
+
 
         startBannerTimer();
 
       },
-      { passive: true }
+      {
+        passive: true
+      }
     );
 
+
+    /* Mulai carousel */
 
     startBannerTimer();
 
 
     /* =========================
-       ARTICLE DATA
-    ========================== */
-
-    const articleData = {
-
-      skin: {
-
-        moreText:
-          "Lihat semua artikel Bocoran Skin →",
-
-        moreLink:
-          "artikel-bocoran-skin.html",
-
-        articles: [
-
-          {
-            image:
-              "asset/banner/bannerplaceholder01.png",
-
-            title:
-              "Bocoran Skin Terbaru Mobile Legends",
-
-            description:
-              "Simak informasi terbaru mengenai skin yang akan hadir di Mobile Legends.",
-
-            link:
-              "artikel-bocoran-skin-1.html"
-
-          },
-
-          {
-            image:
-              "asset/banner/bannerplaceholder02.png",
-
-            title:
-              "Skin Baru yang Siap Hadir di Land of Dawn",
-
-            description:
-              "Berbagai informasi mengenai skin terbaru dan event yang akan datang.",
-
-            link:
-              "artikel-bocoran-skin-2.html"
-
-          },
-
-          {
-            image:
-              "asset/banner/bannerplaceholder03.png",
-
-            title:
-              "Update Bocoran Skin Mobile Legends",
-
-            description:
-              "Kumpulan bocoran dan kabar terbaru seputar skin Mobile Legends.",
-
-            link:
-              "artikel-bocoran-skin-3.html"
-
-          }
-
-        ]
-
-      },
-
-
-      esport: {
-
-        moreText:
-          "Lihat semua artikel E-sport →",
-
-        moreLink:
-          "artikel-esport.html",
-
-        articles: [
-
-          {
-            image:
-              "asset/banner/bannerplaceholder01.png",
-
-            title:
-              "Berita E-sport Mobile Legends Terbaru",
-
-            description:
-              "Update terbaru seputar kompetisi dan dunia E-sport Mobile Legends.",
-
-            link:
-              "artikel-esport-1.html"
-
-          },
-
-          {
-            image:
-              "asset/banner/bannerplaceholder02.png",
-
-            title:
-              "Update Turnamen dan Tim E-sport",
-
-            description:
-              "Informasi terbaru mengenai turnamen, tim, dan pemain E-sport.",
-
-            link:
-              "artikel-esport-2.html"
-
-          },
-
-          {
-            image:
-              "asset/banner/bannerplaceholder03.png",
-
-            title:
-              "Kabar Terbaru Dunia E-sport",
-
-            description:
-              "Berita dan informasi menarik seputar perkembangan E-sport.",
-
-            link:
-              "artikel-esport-3.html"
-
-          }
-
-        ]
-
-      },
-
-
-      lainnya: {
-
-        moreText:
-          "Lihat semua artikel lainnya →",
-
-        moreLink:
-          "artikel-lainnya.html",
-
-        articles: [
-
-          {
-            image:
-              "asset/banner/bannerplaceholder01.png",
-
-            title:
-              "Artikel Terbaru Belajarverse",
-
-            description:
-              "Informasi menarik dan berbagai tulisan terbaru dari Belajarverse.",
-
-            link:
-              "artikel-lainnya-1.html"
-
-          },
-
-          {
-            image:
-              "asset/banner/bannerplaceholder02.png",
-
-            title:
-              "Tips dan Informasi Menarik",
-
-            description:
-              "Berbagai informasi dan tips yang bisa kamu temukan di Belajarverse.",
-
-            link:
-              "artikel-lainnya-2.html"
-
-          },
-
-          {
-            image:
-              "asset/banner/bannerplaceholder03.png",
-
-            title:
-              "Kumpulan Artikel Belajarverse",
-
-            description:
-              "Baca berbagai artikel menarik dari berbagai dunia Belajar.",
-
-            link:
-              "artikel-lainnya-3.html"
-
-          }
-
-        ]
-
-      }
-
-    };
-
-
-    /* =========================
-       ARTICLE CATEGORY SYSTEM
+       ARTICLE TABS
     ========================== */
 
     const articleTabs =
-      document.querySelectorAll(".article-tab");
-
-    const articleList =
-      document.getElementById("articleList");
-
-    const articleMore =
-      document.getElementById("articleMore");
+      document.querySelectorAll(
+        ".article-tab"
+      );
 
 
-    function renderArticles(category) {
-
-      const data =
-        articleData[category];
-
-
-      articleList.innerHTML = "";
+    const articleLists =
+      document.querySelectorAll(
+        ".article-list"
+      );
 
 
-      data.articles.forEach(function (article) {
+    articleTabs.forEach(
+      function (tab) {
 
-        const card =
-          document.createElement("a");
-
-        card.href = article.link;
-
-        card.className = "article-card";
+        tab.addEventListener(
+          "click",
+          function () {
 
 
-        card.innerHTML = `
-
-          <img
-            src="${article.image}"
-            alt="${article.title}"
-            class="article-thumbnail"
-          >
-
-          <div class="article-info">
-
-            <h3 class="article-title">
-              ${article.title}
-            </h3>
-
-            <p class="article-description">
-              ${article.description}
-            </p>
-
-          </div>
-
-        `;
+            const category =
+              tab.getAttribute(
+                "data-category"
+              );
 
 
-        articleList.appendChild(card);
+            /* Aktifkan tab */
 
-      });
+            articleTabs.forEach(
+              function (item) {
 
+                item.classList.remove(
+                  "active"
+                );
 
-      articleMore.textContent =
-        data.moreText;
-
-      articleMore.href =
-        data.moreLink;
-
-    }
-
-
-    articleTabs.forEach(function (tab) {
-
-      tab.addEventListener("click", function () {
-
-        const category =
-          tab.dataset.category;
+              }
+            );
 
 
-        articleTabs.forEach(function (item) {
-
-          item.classList.remove("active");
-
-        });
+            tab.classList.add(
+              "active"
+            );
 
 
-        tab.classList.add("active");
+            /* Sembunyikan semua */
+
+            articleLists.forEach(
+              function (list) {
+
+                list.classList.remove(
+                  "active"
+                );
+
+              }
+            );
 
 
-        renderArticles(category);
+            /* Tampilkan kategori */
 
-      });
+            const selectedList =
+              document.getElementById(
+                category
+              );
 
-    });
+
+            if (selectedList) {
+
+              selectedList.classList.add(
+                "active"
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
 
 
   </script>
 
 
 </body>
+
   </html>
