@@ -836,9 +836,6 @@
 
     /* =========================
        SECTION DIVIDER
-       
-       Bentuk:
-       ────────────── • •
     ========================== */
 
     .section-divider {
@@ -910,15 +907,20 @@
 
       position: relative;
 
-      min-height: 300px;
+      /* DIPANGKAS DARI 300px */
+
+      min-height: 0;
 
       display: flex;
 
       align-items: center;
 
-      gap: 45px;
+      gap: 35px;
 
-      padding: 42px 42px 60px;
+      /* DIPANGKAS AGAR TIDAK TERLALU
+         BANYAK RUANG ATAS / BAWAH */
+
+      padding: 28px 42px 48px;
 
       border:
         1px solid
@@ -947,7 +949,7 @@
     .about-logo {
 
       flex:
-        0 0 180px;
+        0 0 160px;
 
       display: flex;
 
@@ -960,8 +962,8 @@
 
     .about-logo img {
 
-      width: 170px;
-      height: 170px;
+      width: 150px;
+      height: 150px;
 
       object-fit: contain;
 
@@ -1606,12 +1608,14 @@
 
       .about-box {
 
-        min-height: 0px;
+        /* TIDAK LAGI DIPAKSA 245px */
 
-        gap: 28px;
+        min-height: 0;
+
+        gap: 22px;
 
         padding:
-          22px 28px 48px;
+          20px 24px 45px;
 
         border-radius: 20px;
 
@@ -1621,15 +1625,15 @@
       .about-logo {
 
         flex:
-          0 0 125px;
+          0 0 115px;
 
       }
 
 
       .about-logo img {
 
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
 
       }
 
@@ -1656,7 +1660,7 @@
 
         right: 22px;
 
-        bottom: 18px;
+        bottom: 17px;
 
         font-size: 13px;
 
@@ -1978,12 +1982,14 @@
 
       .about-box {
 
-        min-height: 245px;
+        /* INI BAGIAN PALING PENTING */
 
-        gap: 16px;
+        min-height: 0;
+
+        gap: 12px;
 
         padding:
-          28px 20px 52px;
+          18px 18px 44px;
 
         border-radius: 18px;
 
@@ -1993,15 +1999,15 @@
       .about-logo {
 
         flex:
-          0 0 95px;
+          0 0 88px;
 
       }
 
 
       .about-logo img {
 
-        width: 92px;
-        height: 92px;
+        width: 86px;
+        height: 86px;
 
       }
 
@@ -2010,7 +2016,7 @@
 
         font-size: 22px;
 
-        margin-bottom: 8px;
+        margin-bottom: 7px;
 
       }
 
@@ -2019,7 +2025,7 @@
 
         font-size: 13px;
 
-        line-height: 1.55;
+        line-height: 1.5;
 
       }
 
@@ -2028,7 +2034,7 @@
 
         right: 17px;
 
-        bottom: 16px;
+        bottom: 15px;
 
         font-size: 12px;
 
@@ -2168,9 +2174,6 @@
 
       <nav>
 
-
-        <!-- BRAND -->
-
         <a
           href="/"
           class="brand"
@@ -2190,8 +2193,6 @@
 
         </a>
 
-
-        <!-- DESKTOP MENU -->
 
         <div class="nav-menu">
 
@@ -2214,8 +2215,6 @@
         </div>
 
 
-        <!-- MOBILE BUTTON -->
-
         <button
           class="menu-toggle"
           id="menuToggle"
@@ -2229,8 +2228,6 @@
 
       </nav>
 
-
-      <!-- MOBILE MENU -->
 
       <div
         class="mobile-menu"
@@ -2260,10 +2257,6 @@
   </header>
 
 
-  <!-- =========================
-       MAIN
-  ========================== -->
-
   <main>
 
 
@@ -2275,7 +2268,6 @@
 
       <div class="container">
 
-
         <div
           class="banner-carousel"
           id="bannerCarousel"
@@ -2285,7 +2277,6 @@
             class="banner-track"
             id="bannerTrack"
           >
-
 
             <a
               href="coming-soon.html"
@@ -2325,13 +2316,10 @@
 
             </a>
 
-
           </div>
 
         </div>
 
-
-        <!-- DOTS -->
 
         <div
           class="banner-dots"
@@ -2358,7 +2346,6 @@
 
         </div>
 
-
       </div>
 
     </section>
@@ -2372,9 +2359,7 @@
 
       <div class="container">
 
-
         <div class="popular-box">
-
 
           <div class="popular-header">
 
@@ -2387,8 +2372,6 @@
 
           <div class="popular-content">
 
-
-            <!-- 1 -->
 
             <a
               href="coming-soon.html"
@@ -2408,8 +2391,6 @@
             </a>
 
 
-            <!-- 2 -->
-
             <a
               href="coming-soon.html"
               class="popular-card"
@@ -2427,8 +2408,6 @@
 
             </a>
 
-
-            <!-- 3 -->
 
             <a
               href="coming-soon.html"
@@ -2448,8 +2427,6 @@
             </a>
 
 
-            <!-- 4 -->
-
             <a
               href="coming-soon.html"
               class="popular-card"
@@ -2467,8 +2444,6 @@
 
             </a>
 
-
-            <!-- MORE -->
 
             <a
               href="coming-soon.html"
@@ -2496,7 +2471,6 @@
 
         </div>
 
-
       </div>
 
     </section>
@@ -2504,7 +2478,6 @@
 
     <!-- =========================
          DIVIDER
-         ────────────── • •
     ========================== -->
 
     <div class="container">
@@ -2536,11 +2509,8 @@
 
       <div class="container">
 
-
         <div class="about-box">
 
-
-          <!-- LOGO -->
 
           <div class="about-logo">
 
@@ -2551,8 +2521,6 @@
 
           </div>
 
-
-          <!-- TEXT -->
 
           <div class="about-content">
 
@@ -2568,8 +2536,6 @@
           </div>
 
 
-          <!-- ABOUT LINK -->
-
           <a
             href="coming-soon.html"
             class="about-link"
@@ -2580,7 +2546,6 @@
 
         </div>
 
-
       </div>
 
     </section>
@@ -2588,7 +2553,6 @@
 
     <!-- =========================
          DIVIDER
-         ────────────── • •
     ========================== -->
 
     <div class="container">
@@ -2618,8 +2582,6 @@
       <div class="container">
 
 
-        <!-- TITLE -->
-
         <div class="article-heading">
 
           <h2>
@@ -2628,10 +2590,6 @@
 
         </div>
 
-
-        <!-- =========================
-             CATEGORY TABS
-        ========================== -->
 
         <div class="article-tabs">
 
@@ -2666,17 +2624,13 @@
         </div>
 
 
-        <!-- =========================
-             BOCORAN SKIN
-        ========================== -->
+        <!-- BOCORAN SKIN -->
 
         <div
           class="article-list active"
           id="skin"
         >
 
-
-          <!-- ARTICLE 1 -->
 
           <a
             href="coming-soon.html"
@@ -2709,8 +2663,6 @@
           </a>
 
 
-          <!-- ARTICLE 2 -->
-
           <a
             href="coming-soon.html"
             class="article-card"
@@ -2741,8 +2693,6 @@
 
           </a>
 
-
-          <!-- ARTICLE 3 -->
 
           <a
             href="coming-soon.html"
@@ -2775,8 +2725,6 @@
           </a>
 
 
-          <!-- MORE -->
-
           <a
             href="coming-soon.html"
             class="article-more"
@@ -2788,17 +2736,13 @@
         </div>
 
 
-        <!-- =========================
-             E-SPORT
-        ========================== -->
+        <!-- E-SPORT -->
 
         <div
           class="article-list"
           id="esport"
         >
 
-
-          <!-- ARTICLE 1 -->
 
           <a
             href="coming-soon.html"
@@ -2831,8 +2775,6 @@
           </a>
 
 
-          <!-- ARTICLE 2 -->
-
           <a
             href="coming-soon.html"
             class="article-card"
@@ -2863,8 +2805,6 @@
 
           </a>
 
-
-          <!-- ARTICLE 3 -->
 
           <a
             href="coming-soon.html"
@@ -2897,8 +2837,6 @@
           </a>
 
 
-          <!-- MORE -->
-
           <a
             href="coming-soon.html"
             class="article-more"
@@ -2910,17 +2848,13 @@
         </div>
 
 
-        <!-- =========================
-             ARTIKEL LAINNYA
-        ========================== -->
+        <!-- ARTIKEL LAINNYA -->
 
         <div
           class="article-list"
           id="lainnya"
         >
 
-
-          <!-- ARTICLE 1 -->
 
           <a
             href="coming-soon.html"
@@ -2953,8 +2887,6 @@
           </a>
 
 
-          <!-- ARTICLE 2 -->
-
           <a
             href="coming-soon.html"
             class="article-card"
@@ -2986,8 +2918,6 @@
           </a>
 
 
-          <!-- ARTICLE 3 -->
-
           <a
             href="coming-soon.html"
             class="article-card"
@@ -3018,8 +2948,6 @@
 
           </a>
 
-
-          <!-- MORE -->
 
           <a
             href="coming-soon.html"
@@ -3097,8 +3025,6 @@
       }
     );
 
-
-    /* Tutup menu setelah memilih */
 
     document
       .querySelectorAll(".mobile-menu a")
@@ -3331,8 +3257,6 @@
     );
 
 
-    /* Mulai carousel */
-
     startBannerTimer();
 
 
@@ -3366,8 +3290,6 @@
               );
 
 
-            /* Aktifkan tab */
-
             articleTabs.forEach(
               function (item) {
 
@@ -3384,8 +3306,6 @@
             );
 
 
-            /* Sembunyikan semua */
-
             articleLists.forEach(
               function (list) {
 
@@ -3396,8 +3316,6 @@
               }
             );
 
-
-            /* Tampilkan kategori */
 
             const selectedList =
               document.getElementById(
