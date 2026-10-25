@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Support Belajarverse</title>
+  <meta name="description" content="Dukung perkembangan Belajarverse dan bantu kami terus mengembangkan karya, proyek, serta ekosistem Belajarverse.">
+
+  <meta name="theme-color" content="#1F2833">
+
+  <link rel="icon" type="image/png" href="/asset/logo.png">
+
+  <style>
+    :root {
+      --bg: #1F2833;
+      --bg-dark: #151D26;
+      --white: #FFFFFF;
+      --muted: #AEB8C4;
+      --blue: #168FFF;
+      --cyan: #35DFFF;
+      --border: rgba(255, 255, 255, 0.09);
+      --card: #202B37;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(22, 143, 255, 0.10),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 35%,
+          rgba(53, 223, 255, 0.06),
+          transparent 28%
+        ),
+        linear-gradient(
+          145deg,
+          var(--bg),
+          #1A2530 55%,
+          var(--bg-dark)
+        );
+      background-attachment: fixed;
+      padding-bottom: 120px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* HEADER */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      background: rgba(21, 29, 38, 0.96);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      width: min(1120px, 90%);
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-name span {
+      color: var(--cyan);
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .desktop-nav a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .desktop-nav a:hover {
+      color: var(--cyan);
+    }
+
+    /* HERO */
+
+    .main {
+      width: min(920px, 90%);
+      margin: auto;
+    }
+
+    .hero {
+      padding: 74px 0 46px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 8px 13px;
+      border: 1px solid rgba(53, 223, 255, 0.2);
+      border-radius: 100px;
+      background: rgba(53, 223, 255, 0.06);
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .hero h1 {
+      max-width: 750px;
+      margin: 0 auto 20px;
+      font-size: clamp(32px, 5vw, 49px);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* SECTION TITLE */
+
+    .section-heading {
+      margin: 12px 0 23px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 8px;
+      font-size: 20px;
+      letter-spacing: -0.3px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* DONATION CARDS */
+
+    .donation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .donation-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 220px;
+      padding: 23px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: var(--card);
+      transition:
+        border-color 0.22s ease,
+        transform 0.22s ease,
+        background 0.22s ease;
+    }
+
+    .donation-card:hover {
+      border-color: rgba(53, 223, 255, 0.35);
+      background: #24313E;
+      transform: translateY(-3px);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .platform-logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 57px;
+      height: 57px;
+      padding: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 13px;
+      background: #FFFFFF;
+    }
+
+    .platform-logo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .platform-info {
+      min-width: 0;
+    }
+
+    .platform-info h3 {
+      margin-bottom: 6px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .platform-label {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .card-description {
+      flex-grow: 1;
+      margin-bottom: 21px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .donate-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      min-height: 43px;
+      padding: 11px 15px;
+      border: 1px solid rgba(53, 223, 255, 0.18);
+      border-radius: 10px;
+      background: rgba(53, 223, 255, 0.08);
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .donate-button:hover {
+      background: var(--cyan);
+      color: var(--bg-dark);
+    }
+
+    .donate-button svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    /* SUPPORT NOTE */
+
+    .support-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-top: 26px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(21, 29, 38, 0.55);
+    }
+
+    .note-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(53, 223, 255, 0.09);
+      color: var(--cyan);
+    }
+
+    .note-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .note-content h3 {
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .note-content p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      width: min(1120px, 90%);
+      margin: 65px auto 0;
+      padding-top: 23px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .footer strong {
+      color: var(--white);
+    }
+
+    /* BOTTOM CAPSULE NAVIGATION */
+
+    .bottom-nav-wrap {
+      position: fixed;
+      z-index: 200;
+      right: 0;
+      bottom: max(16px, env(safe-area-inset-bottom));
+      left: 0;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+      pointer-events: none;
+    }
+
+    .bottom-nav {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      width: max-content;
+      max-width: 100%;
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 19px;
+      background: #1F2833;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+      pointer-events: auto;
+    }
+
+    .bottom-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 91px;
+      min-height: 61px;
+      padding: 7px 8px;
+      border-radius: 12px;
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .bottom-nav a svg {
+      display: block;
+      width: 21px;
+      height: 21px;
+      flex-shrink: 0;
+    }
+
+    .bottom-nav a.active {
+      color: var(--cyan);
+    }
+
+    .bottom-nav a:not(.active):hover {
+      color: var(--cyan);
+    }
+
+    .bottom-nav a:focus-visible,
+    .donate-button:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 650px) {
+      body {
+        padding-bottom: 112px;
+      }
+
+      .header-inner {
+        min-height: 66px;
+        width: 90%;
+      }
+
+      .brand-logo {
+        width: 36px;
+        height: 36px;
+      }
+
+      .brand-name {
+        font-size: 19px;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 53px 0 37px;
+      }
+
+      .eyebrow {
+        margin-bottom: 18px;
+        font-size: 10px;
+      }
+
+      .hero h1 {
+        font-size: clamp(30px, 8vw, 39px);
+        letter-spacing: -1px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+        line-height: 1.85;
+      }
+
+      .section-heading h2 {
+        font-size: 18px;
+      }
+
+      .donation-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+      }
+
+      .donation-card {
+        min-height: 0;
+        padding: 19px;
+        border-radius: 15px;
+      }
+
+      .card-top {
+        margin-bottom: 15px;
+      }
+
+      .platform-logo-box {
+        width: 52px;
+        height: 52px;
+      }
+
+      .card-description {
+        margin-bottom: 17px;
+      }
+
+      .support-note {
+        margin-top: 20px;
+        padding: 17px;
+      }
+
+      .footer {
+        margin-top: 45px;
+      }
+
+      .bottom-nav-wrap {
+        padding-right: 12px;
+        padding-left: 12px;
+        bottom: max(12px, env(safe-area-inset-bottom));
+      }
+
+      .bottom-nav {
+        width: 100%;
+        max-width: 360px;
+        padding: 7px;
+        border-radius: 17px;
+      }
+
+      .bottom-nav a {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+        min-height: 57px;
+        padding: 6px 4px;
+        font-size: 10px;
+      }
+
+      .bottom-nav a svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+
+      <a class="brand" href="/" aria-label="Belajarverse Home">
+        <img
+          class="brand-logo"
+          src="/asset/logo.png"
+          alt="Logo Belajarverse"
+        >
+        <span class="brand-name">Belajar<span>verse</span></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigasi utama">
+        <a href="/#game-market">Game Market</a>
+        <a href="/#social-media">Social Media</a>
+        <a href="/#library">Library</a>
+        <a href="/#about">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- INTRODUCTION -->
+    <section class="hero">
+
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Support Belajarverse
+      </div>
+
+      <h1>
+        Dukung <span>Perkembangan</span><br>
+        Belajarverse
+      </h1>
+
+      <p class="hero-description">
+        Setiap dukungan membantu kami mengembangkan Belajarverse,
+        menghadirkan karya baru, dan menciptakan pengalaman yang
+        lebih baik untuk semua.
+      </p>
+
+    </section>
+
+
+    <!-- DONATION PLATFORMS -->
+    <section aria-labelledby="platform-heading">
+
+      <div class="section-heading">
+        <h2 id="platform-heading">Pilih Platform Dukungan</h2>
+        <p>
+          Pilih platform yang paling nyaman untuk kamu gunakan.
+        </p>
+      </div>
+
+      <div class="donation-grid">
+
+        <!-- TRAKTEER -->
+        <article class="donation-card">
+
+          <div class="card-top">
+
+            <div class="platform-logo-box">
+              <img
+                class="platform-logo"
+                src="/asset/support/trakteer.png"
+                alt="Logo Trakteer"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="platform-info">
+              <h3>Trakteer</h3>
+              <p class="platform-label">Support kreator</p>
+            </div>
+
+          </div>
+
+          <p class="card-description">
+            Berikan dukungan untuk membantu perkembangan
+            proyek dan karya Belajarverse.
+          </p>
+
+          <a
+            class="donate-button"
+            href="https://trakteer.id/belajarverse/gift"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Dukung Sekarang
+
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </a>
+
+        </article>
+
+
+        <!-- SOCIABUZZ -->
+        <article class="donation-card">
+
+          <div class="card-top">
+
+            <div class="platform-logo-box">
+              <img
+                class="platform-logo"
+                src="/asset/support/sociabuzz.png"
+                alt="Logo SociaBuzz"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="platform-info">
+              <h3>SociaBuzz</h3>
+              <p class="platform-label">Dukungan kreator</p>
+            </div>
+
+          </div>
+
+          <p class="card-description">
+            Dukung Belajarverse melalui halaman dukungan
+            kami di SociaBuzz.
+          </p>
+
+          <a
+            class="donate-button"
+            href="https://sociabuzz.com/belajarverse/tribe"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Dukung Sekarang
+
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </a>
+
+        </article>
+
+
+        <!-- TAKO -->
+        <article class="donation-card">
+
+          <div class="card-top">
+
+            <div class="platform-logo-box">
+              <img
+                class="platform-logo"
+                src="/asset/support/tako.png"
+                alt="Logo Tako"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="platform-info">
+              <h3>Tako</h3>
+              <p class="platform-label">Support kreator</p>
+            </div>
+
+          </div>
+
+          <p class="card-description">
+            Kirim dukungan melalui halaman Tako resmi
+            milik Belajarverse.
+          </p>
+
+          <a
+            class="donate-button"
+            href="https://tako.id/BelajarVerse"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Dukung Sekarang
+
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </a>
+
+        </article>
+
+
+        <!-- SAWERIA -->
+        <article class="donation-card">
+
+          <div class="card-top">
+
+            <div class="platform-logo-box">
+              <img
+                class="platform-logo"
+                src="/asset/support/saweria.png"
+                alt="Logo Saweria"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="platform-info">
+              <h3>Saweria</h3>
+              <p class="platform-label">Dukungan langsung</p>
+            </div>
+
+          </div>
+
+          <p class="card-description">
+            Dukung perkembangan Belajarverse melalui
+            halaman Saweria kami.
+          </p>
+
+          <a
+            class="donate-button"
+            href="https://saweria.co/BelajarVerse"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Dukung Sekarang
+
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M7 17 17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- SUPPORT NOTE -->
+    <aside class="support-note">
+
+      <div class="note-icon">
+        <svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"></path>
+        </svg>
+      </div>
+
+      <div class="note-content">
+        <h3>Terima kasih sudah mendukung!</h3>
+        <p>
+          Dukunganmu sangat berarti bagi perkembangan Belajarverse.
+          Terima kasih telah menjadi bagian dari perjalanan karya
+          dan proyek kami.
+        </p>
+      </div>
+
+    </aside>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      © 2026 <strong>Belajarverse</strong>. All rights reserved.
+    </p>
+    <p>Satu tempat untuk semua karya, project, dan dunia Belajar.</p>
+  </footer>
+
+
+  <!-- BOTTOM CAPSULE NAVIGATION -->
+  <div class="bottom-nav-wrap">
+
+    <nav class="bottom-nav" aria-label="Navigasi bawah">
+
+      <!-- HOME -->
+      <a href="/" aria-label="Home">
+
+        <svg viewBox="0 0 24 24"
+          fill="currentColor" aria-hidden="true">
+          <path d="M12 3.2 2.8 10.8a1 1 0 0 0 1.3 1.5l.9-.7v8.1c0 .7.5 1.2 1.2 1.2h4.1v-6.1h3.4v6.1h4.1c.7 0 1.2-.5 1.2-1.2v-8.1l.9.7a1 1 0 0 0 1.3-1.5L12 3.2Z"></path>
+        </svg>
+
+        <span>Home</span>
+
+      </a>
+
+
+      <!-- SUGGESTION -->
+      <a
+        href="#"
+        id="suggestion-link"
+        aria-label="Suggestion"
+      >
+
+        <svg viewBox="0 0 24 24"
+          fill="currentColor" aria-hidden="true">
+          <path d="M12 3a8.5 8.5 0 0 0-5.4 15.1V21h10.8v-2.9A8.5 8.5 0 0 0 12 3Zm3.4 13.7-.6.4V19H9.2v-1.9l-.6-.4a6.1 6.1 0 1 1 6.8 0Z"></path>
+          <path d="M10.8 7.3h2.4v5.3h-2.4zM10.8 13.8h2.4v2.1h-2.4z"></path>
+        </svg>
+
+        <span>Suggestion</span>
+
+      </a>
+
+
+      <!-- SUPPORT -->
+      <a
+        href="/support.html"
+        class="active"
+        aria-current="page"
+        aria-label="Support"
+      >
+
+        <svg viewBox="0 0 24 24"
+          fill="currentColor" aria-hidden="true">
+          <path d="M12 21s-8.8-5.2-8.8-11.4A5.1 5.1 0 0 1 12 6.7a5.1 5.1 0 0 1 8.8 2.9C20.8 15.8 12 21 12 21Z"></path>
+        </svg>
+
+        <span>Support</span>
+
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <script>
+    /*
+      MASUKKAN URL GOOGLE FORM SARAN DI SINI
+      Contoh:
+      const suggestionURL = "https://forms.gle/URL_FORM_LU";
+    */
+
+    const suggestionURL = "";
+
+    const suggestionLink = document.getElementById("suggestion-link");
+
+    suggestionLink.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      if (suggestionURL.trim() !== "") {
+        window.location.href = suggestionURL;
+      } else {
+        alert("Link Suggestion Belajarverse belum dipasang. Link ini akan aktif setelah Google Form tersedia.");
+      }
+    });
+  </script>
+
+</body>
+  </html>
