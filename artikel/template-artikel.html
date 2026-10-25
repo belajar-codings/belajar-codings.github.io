@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tulis ringkasan artikel di sini.">
+  <link rel="icon" type="image/png" href="/asset/logo.png">
+  <title>Judul Artikel | Belajarverse</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #1F2833;
+      --bg-dark: #151D26;
+      --white: #ffffff;
+      --muted: #AEB8C4;
+      --blue: #168FFF;
+      --cyan: #35DFFF;
+      --border: rgba(255,255,255,.08);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(22,143,255,.14), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(53,223,255,.07), transparent 30%),
+        linear-gradient(135deg, #1F2833 0%, #1A2530 50%, #151D26 100%);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 115px;
+    }
+    body::before, body::after {
+      content: ""; position: fixed; border-radius: 50%; pointer-events: none; z-index: -1;
+    }
+    body::before { width: 430px; height: 430px; border: 1px solid rgba(53,223,255,.10); top: -250px; left: -120px; }
+    body::after { width: 480px; height: 480px; border: 1px solid rgba(22,143,255,.08); right: -280px; bottom: -280px; }
+    .container { width: min(900px, 90%); margin: 0 auto; }
+
+    /* HEADER — konsisten dengan beranda */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(21,29,38,.90);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-wrap { width: min(1120px, 90%); margin: auto; position: relative; }
+    nav.top-nav { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-size: 21px; font-weight: 800; letter-spacing: -.6px; }
+    .brand-logo { width: 40px; height: 40px; object-fit: contain; }
+    .brand-name span { color: var(--cyan); }
+    .nav-menu { display: flex; align-items: center; gap: 30px; }
+    .nav-menu a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color .25s ease; }
+    .nav-menu a:hover { color: var(--white); }
+    .menu-toggle {
+      display: none; width: 42px; height: 42px; align-items: center; justify-content: center;
+      border: 1px solid rgba(53,223,255,.35); border-radius: 12px;
+      background: rgba(53,223,255,.05); color: var(--white); font-size: 22px; cursor: pointer;
+    }
+    .mobile-menu {
+      display: none; position: absolute; top: 76px; right: 0; width: 210px; padding: 10px;
+      border: 1px solid var(--border); border-radius: 16px; background: rgba(21,29,38,.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.25);
+    }
+    .mobile-menu.active { display: block; }
+    .mobile-menu a { display: block; padding: 13px 14px; border-radius: 10px; color: var(--muted); text-decoration: none; font-size: 14px; }
+    .mobile-menu a:hover { color: var(--white); background: rgba(53,223,255,.08); }
+
+    /* AREA ARTIKEL */
+    .article-page { padding: 34px 0 58px; }
+    .back-link { display: inline-block; margin-bottom: 20px; color: var(--cyan); text-decoration: none; font-size: 14px; font-weight: 700; }
+    .back-link:hover { color: var(--white); }
+    .article-shell {
+      overflow: hidden; border: 1px solid var(--border); border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+      box-shadow: 0 18px 45px rgba(0,0,0,.14);
+    }
+    .article-hero { width: 100%; aspect-ratio: 16 / 9; background: rgba(0,0,0,.2); }
+    .article-hero img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .article-content { padding: 30px 34px 36px; }
+    .article-content h1 { margin-bottom: 22px; font-size: clamp(27px, 4vw, 38px); line-height: 1.2; letter-spacing: -.8px; overflow-wrap: anywhere; }
+    .article-body { color: #D8E0E8; font-size: 16px; line-height: 1.85; overflow-wrap: anywhere; }
+    .article-body p { margin: 0 0 20px; }
+    .article-body h2 { color: var(--white); margin: 32px 0 12px; font-size: 24px; line-height: 1.35; }
+    .article-body h3 { color: var(--white); margin: 25px 0 10px; font-size: 19px; line-height: 1.4; }
+    .article-body ul, .article-body ol { margin: 0 0 22px 24px; }
+    .article-body li { margin-bottom: 8px; }
+    .article-body a { color: var(--cyan); }
+    .article-body blockquote { margin: 24px 0; padding: 14px 18px; border-left: 3px solid var(--cyan); background: rgba(53,223,255,.055); color: var(--muted); border-radius: 0 12px 12px 0; }
+    .article-image { margin: 26px 0; }
+    .article-image img { display: block; width: 100%; height: auto; border-radius: 14px; }
+    .article-image figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; text-align: center; }
+
+    /* ARTIKEL TERKAIT */
+    .related-section { margin-top: 38px; }
+    .related-section h2 { margin-bottom: 16px; font-size: 22px; letter-spacing: -.3px; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .related-card { min-width: 0; padding: 17px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,.035); color: var(--white); text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
+    .related-card:hover { border-color: rgba(53,223,255,.35); transform: translateY(-2px); }
+    .related-card span { display: block; margin-bottom: 8px; color: var(--cyan); font-size: 12px; font-weight: 700; }
+    .related-card h3 { font-size: 16px; line-height: 1.45; }
+
+    /* FOOTER */
+    footer { padding: 35px 0; border-top: 1px solid var(--border); color: #7F8B98; font-size: 13px; text-align: center; }
+
+    /* KAPSUL NAVIGASI BAWAH */
+    .bottom-nav {
+      position: fixed; z-index: 999; left: 50%; bottom: 16px; transform: translateX(-50%);
+      width: min(440px, calc(100% - 32px)); min-height: 86px; padding: 10px 8px;
+      display: grid; grid-template-columns: repeat(3,1fr); align-items: center; gap: 4px;
+      background: #1F2833; border: 1px solid rgba(255,255,255,.10); border-radius: 25px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.30);
+    }
+    .bottom-nav a { min-width: 0; min-height: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: #FFF; text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 16px; }
+    .bottom-nav a.active { color: var(--cyan); }
+    .bottom-nav svg { width: 25px; height: 25px; display: block; fill: currentColor; flex-shrink: 0; }
+    .bottom-nav .outline-icon { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    @media (max-width: 800px) {
+      body { padding-bottom: 110px; }
+      nav.top-nav { height: 68px; }
+      .brand { font-size: 19px; }
+      .brand-logo { width: 36px; height: 36px; }
+      .nav-menu { display: none; }
+      .menu-toggle { display: flex; }
+      .mobile-menu { top: 68px; right: 0; }
+      .article-page { padding: 24px 0 42px; }
+      .article-content { padding: 24px 22px 28px; }
+      .article-content h1 { margin-bottom: 18px; }
+      .article-body { font-size: 15px; line-height: 1.8; }
+      .article-body h2 { font-size: 21px; }
+      .related-grid { gap: 10px; }
+      .related-card { padding: 14px; }
+      .related-card h3 { font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      body { padding-bottom: 110px; }
+      .nav-wrap { width: 90%; }
+      .brand { font-size: 19px; }
+      .brand-logo { width: 36px; height: 36px; }
+      .menu-toggle { width: 40px; height: 40px; font-size: 21px; }
+      .mobile-menu { width: 200px; }
+      .container { width: 90%; }
+      .article-page { padding-top: 20px; }
+      .article-shell { border-radius: 17px; }
+      .article-content { padding: 21px 17px 24px; }
+      .article-content h1 { font-size: 26px; }
+      .article-body { font-size: 14px; line-height: 1.8; }
+      .article-body h2 { margin-top: 27px; font-size: 20px; }
+      .article-body h3 { font-size: 17px; }
+      .article-image img { border-radius: 11px; }
+      .related-section { margin-top: 30px; }
+      .related-section h2 { font-size: 20px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .bottom-nav { bottom: 12px; width: calc(100% - 28px); min-height: 82px; border-radius: 23px; }
+      .bottom-nav a { font-size: 11px; }
+      footer { padding: 30px 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="nav-wrap">
+      <nav class="top-nav" aria-label="Menu situs">
+        <a href="/index.html" class="brand">
+          <img src="/asset/logo.png" alt="Logo Belajarverse" class="brand-logo">
+          <div class="brand-name">Belajar<span>verse</span></div>
+        </a>
+        <div class="nav-menu">
+          <a href="/coming-soon.html">Game Market</a>
+          <a href="/coming-soon.html">Social Media</a>
+          <a href="/coming-soon.html">Library</a>
+          <a href="/index.html#tentang">About</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false" type="button">☰</button>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/coming-soon.html">Game Market</a>
+        <a href="/coming-soon.html">Social Media</a>
+        <a href="/coming-soon.html">Library</a>
+        <a href="/index.html#tentang">About</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container article-page">
+    <a class="back-link" href="/artikel/bocoran-skin.html">← Kembali ke daftar artikel</a>
+
+    <article class="article-shell">
+      <div class="article-hero">
+        <!-- Ganti URL gambar di bawah dengan thumbnail artikel ini. -->
+        <img src="/asset/thumbnail/thumbnail-placeholder.png" alt="Gambar utama artikel">
+      </div>
+      <div class="article-content">
+        <!-- Ganti judul artikel di bawah. -->
+        <h1>Judul Artikel Ditulis di Sini</h1>
+
+        <div class="article-body">
+          <!-- GANTI contoh paragraf ini dengan isi artikel. Gunakan <p> untuk paragraf. -->
+          <p>Mulai artikel dengan paragraf pembuka yang menjelaskan topik utama dan alasan pembaca perlu mengetahuinya.</p>
+
+          <!-- Contoh subjudul: boleh dihapus jika tidak diperlukan. -->
+          <h2>Subjudul Artikel</h2>
+          <p>Tulis penjelasan di bagian ini. Pisahkan gagasan menjadi beberapa paragraf agar nyaman dibaca di layar HP.</p>
+
+          <!-- Contoh gambar tambahan: hapus bagian ini jika tidak diperlukan. -->
+          <figure class="article-image">
+            <img src="/asset/resourceartikel/gambar-contoh.png" alt="Deskripsi gambar pendukung">
+            <figcaption>Keterangan gambar jika diperlukan.</figcaption>
+          </figure>
+
+          <p>Lanjutkan isi artikel di sini. Lu bisa menambahkan subjudul lain dengan tag <code>&lt;h2&gt;</code>, daftar dengan <code>&lt;ul&gt;</code> dan <code>&lt;li&gt;</code>, atau kutipan dengan <code>&lt;blockquote&gt;</code>.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ganti judul dan alamat tautan artikel terkait. Hapus kartu yang tidak digunakan. -->
+    <section class="related-section" aria-labelledby="relatedTitle">
+      <h2 id="relatedTitle">Artikel Terkait</h2>
+      <div class="related-grid">
+        <a class="related-card" href="/artikel/bocoran-skin.html">
+          <span>Baca juga</span>
+          <h3>Judul artikel terkait pertama</h3>
+        </a>
+        <a class="related-card" href="/artikel/e-sport.html">
+          <span>Baca juga</span>
+          <h3>Judul artikel terkait kedua</h3>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer><div class="container">© 2026 Belajarverse. All rights reserved.</div></footer>
+
+  <!-- KAPSUL NAVIGASI BAWAH -->
+  <nav class="bottom-nav" aria-label="Navigasi utama">
+    <a href="/index.html" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8v9.1a1.1 1.1 0 0 1-1.1 1.1h-5.3v-6.5H9.4V21H4.1A1.1 1.1 0 0 1 3 19.9z"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="/comingsoon.html" aria-label="Suggestion">
+      <svg class="outline-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a8 8 0 0 0-4.8 14.4V21h9.6v-3.6A8 8 0 0 0 12 3Z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+      <span>Suggestion</span>
+    </a>
+    <a href="/support.html" aria-label="Support">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-9-5.6-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.4-9 12-9 12Z"/></svg>
+      <span>Support</span>
+    </a>
+  </nav>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute('aria-label', isOpen ? 'Tutup menu' : 'Buka menu');
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Buka menu');
+        menuToggle.textContent = '☰';
+      });
+    });
+  </script>
+</body>
+</html>
